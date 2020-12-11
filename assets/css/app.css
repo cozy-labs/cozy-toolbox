@@ -11,3 +11,8 @@
   font-weight: bold;
   src: url("/fonts/Lato-Bold.woff2") format("woff2");
 }
+
+main {
+  max-width: 72ch;
+  margin: auto;
+}
