@@ -42,6 +42,8 @@ defmodule Tools.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
+      {:phoenix_markdown, "~> 1.0"},
+      {:earmark, "1.4.10"}, # More recent versions need elixir 1.10+
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
     ]
   end

@@ -10,6 +10,7 @@ defmodule ToolsWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/doc/:page", DocController, :show
     live_dashboard "/dashboard", metrics: ToolsWeb.Telemetry
   end
 end
