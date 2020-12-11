@@ -41,7 +41,8 @@ defmodule Tools.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
     ]
   end
 
@@ -53,7 +54,10 @@ defmodule Tools.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "cmd npm install --prefix assets"]
+      compile_assets: ["cmd npm run deploy --prefix assets", "phx.digest"],
+      pretty: ["cmd cd assets && prettier --write --no-semi js/* css/*"],
+      setup: ["deps.get", "cmd npm install --prefix assets"],
+      teardown: ["deps.clean --all", "cmd rm -rf _build assets/node_modules"]
     ]
   end
 end
