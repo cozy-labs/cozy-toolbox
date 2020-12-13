@@ -37,7 +37,10 @@ Tools.css is organized in several parts :
 
 ### CSS variables
 
-**TODO**
+I try to make a lot of stuff available via CSS variables. It makes the CSS a
+bit heavier, but it can be useful for custom themes. To start, I have included
+all the CSS variables that was available in Cozy-UI. And I added variables for
+scales (font-size, spacing, z-index, etc.) and breakpoints.
 
 ### Base
 
@@ -46,6 +49,9 @@ Bootstrap](https://getbootstrap.com/docs/5.0/content/reboot/). I haven't use it
 yet, but bootstrap has a solid reputation, and I appreciate avoiding the
 `margin-top` as I have been surprized several times by margin collapse even if
 I know [its rules](https://www.joshwcomeau.com/css/rules-of-margin-collapse/).
+
+But, it would be too simple to just import it. I have tweaked it to my taste.
+In particular, I have used the CSS variables defined sooner.
 
 ### Utilities
 
@@ -134,3 +140,7 @@ Cozy-UI](https://github.com/cozy/cozy-ui/tree/master/assets/fonts).
 
 If you want SVG icons, you can look at [the `assets/icons` of
 Cozy-UI](https://github.com/cozy/cozy-ui/tree/master/assets/icons).
+
+If you want to use JavaScript, I suggest to prefer ID and data attributes to
+avoid mixing classes for CSS and for JS purposes. But, if a class is really
+convenient, you may choose to use the `js:` prefix to make it clear.

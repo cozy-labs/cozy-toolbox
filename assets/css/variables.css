@@ -91,6 +91,23 @@ html {
   --subtitleFontSize: 0.75rem;
   --smallFontSize: 0.875rem;
 
+  /* Breakpoints */
+  --breakpointTeeny: 375px;
+  --breakpointTiny: 480px;
+  --breakpointSmall: 768px;
+  --breakpointMedium: 1024px;
+  --breakpointLarge: 1200px;
+  --breakpointExtraLarge: 1440px;
+
+  /* Spacing scale */
+  --spacing-xs: 0.5rem;
+  --spacing-s: 0.75rem;
+  --spacing-m: 1rem;
+  --spacing-l: 1.5rem;
+  --spacing-l: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+
   /* z-index scale */
   --zIndex-below: -1;
   --zIndex-app: 0;
