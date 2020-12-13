@@ -1,0 +1,108 @@
+/*
+ * html targets the same element as :root but its specificity is lower.
+ * This allows us to use html to define our CSS custom properties inside
+ * cozy-ui, and use :root in the custom CSS injected by the stack for
+ * context that have a theme. This way, the :root selector can override
+ * CSS custom properties, without relying on CSS order.
+ */
+html {
+  /* Colors by name */
+  --white: #fff;
+  --paleGrey: #f5f6f7;
+  --silver: #d6d8da;
+  --coolGrey: #95999d;
+  --slateGrey: #5d6165;
+  --charcoalGrey: #32363f;
+  --black: #000;
+  --overlay: rgba(50, 54, 63, 0.5);
+  --zircon: #f5faff;
+  --hawkesBlue: #eef5fe;
+  --frenchPass: #c2dcff;
+  --azure: #1fa8f1;
+  --dodgerBlue: #297ef2;
+  --scienceBlue: #0b61d6;
+  --puertoRico: #0dcbcf;
+  --grannyApple: #def7e7;
+  --weirdGreen: #40de8e;
+  --emerald: #35ce68;
+  --malachite: #08b442;
+  --seafoamGreen: #3da67e;
+  --brightSun: #ffc644;
+  --texasRose: #ffae5f;
+  --mango: #ff962f;
+  --pumpkinOrange: #ff7f1b;
+  --blazeOrange: #fc6d00;
+  --melon: #fd7461;
+  --chablis: #fff2f2;
+  --yourPink: #fdcbcb;
+  --fuchsia: #fc4c83;
+  --pomegranate: #f52d2d;
+  --monza: #dd0505;
+  --lavender: #c2adf4;
+  --darkPeriwinkle: #6984ce;
+  --purpley: #7f6bee;
+  --portage: #9169f2;
+  --lightishPurple: #b449e7;
+  --barney: #922bc2;
+
+  /* Material-UI styles */
+  --primaryColor: var(--dodgerBlue);
+  --primaryColorDark: var(--scienceBlue);
+  --primaryColorLight: #5c9df5;
+  --primaryColorLighter: #4b93f7;
+  --primaryColorLightest: #9fc4fb;
+  --primaryBackgroundLight: var(--zircon);
+  --primaryTextColor: var(--charcoalGrey);
+  --secondaryTextColor: var(--coolGrey);
+  --primaryContrastTextColor: var(--white);
+  --invertedTabsActiveTextColor: var(--primaryContrastTextColor);
+  --invertedTabsInactiveTextColor: var(--primaryContrastTextColor);
+  --invertedTabsIndicatorColor: var(--primaryContrastTextColor);
+  --invertedTabsBackgroundColor: var(--primaryColor);
+  --regularButtonPrimaryColor: var(--primaryColor);
+  --regularButtonSecondaryColor: var(--primaryColor);
+  --regularButtonActiveColor: var(--primaryColorDark);
+  --regularButtonConstrastColor: var(--primaryContrastTextColor);
+  --secondaryButtonPrimaryColor: var(--white);
+  --secondaryButtonSecondaryColor: var(--silver);
+  --secondaryButtonActiveColor: var(--silver);
+  --secondaryButtonContrastColor: var(--black);
+  --iconColor: currentColor;
+  --actionMenuIconColor: var(--slateGrey);
+  --errorColor: var(--pomegranate);
+  --errorBackgroundLight: var(--chablis);
+  --validColor: var(--emerald);
+  --warnColor: var(--texasRose);
+  --neutralBackground: var(--paleGrey);
+  --buttonTextTransform: uppercase;
+  --buttonBorderRadius: 0.125rem;
+  --navTextColor: var(--slateGrey);
+  --navTextActiveColor: var(--slateGrey);
+  --navTextHoverColor: var(--charcoalGrey);
+
+  /* Fonts */
+  --primaryFont: Lato, sans-serif;
+  --h1FontSize: 1.5rem;
+  --h2FontSize: 1.25rem;
+  --h3FontSize: 1.125rem;
+  --h4FontSize: 1rem;
+  --textFontSize: 1rem;
+  --captionFontSize: 0.75rem;
+  --subtitleFontSize: 0.75rem;
+  --smallFontSize: 0.875rem;
+
+  /* z-index scale */
+  --zIndex-below: -1;
+  --zIndex-app: 0;
+  --zIndex-low: 1;
+  --zIndex-alertMobile: 10;
+  --zIndex-nav: 20;
+  --zIndex-bar: 21;
+  --zIndex-selection: 30;
+  --zIndex-popover: 40;
+  --zIndex-overlay: 50;
+  --zIndex-fileActionMenu: 60;
+  --zIndex-drawer: 60;
+  --zIndex-modal: 70;
+  --zindex-alert: 80;
+}
