@@ -58,7 +58,7 @@ defmodule Tools.MixProject do
   defp aliases do
     [
       compile_assets: ["cmd npm run deploy --prefix assets", "phx.digest"],
-      pretty: ["cmd cd assets && prettier --write --no-semi js/* css/*"],
+      pretty: ["cmd cd assets && prettier --write --no-semi *.js js/* css/*"],
       setup: ["deps.get", "cmd npm install --prefix assets"],
       teardown: ["deps.clean --all", "cmd rm -rf _build assets/node_modules"]
     ]
