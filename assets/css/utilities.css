@@ -1,0 +1,34 @@
+.u\:block {
+  display: block;
+}
+.u\:flex {
+  display: flex;
+}
+.u\:grid {
+  display: grid;
+}
+.u\:contents {
+  display: contents;
+}
+
+.u\:overflow-auto {
+  overflow: auto;
+}
+.u\:overflow-hidden {
+  overflow: hidden;
+}
+
+.u\:absolute {
+  position: absolute;
+}
+.u\:relative {
+  position: relative;
+}
+
+.u\:box-shadow-1 {
+  box-shadow: 0 0.25rem 0.75rem 0 rgba(0, 0, 0, 0.08);
+}
+
+.u\:cursor-pointer {
+  cursor: pointer;
+}

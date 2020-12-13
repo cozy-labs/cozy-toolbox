@@ -103,7 +103,10 @@ a {
   text-decoration: underline;
   text-decoration-skip-ink: auto;
 }
-a:hover {
+a:hover,
+a:active,
+a:focus,
+a:visited {
   color: var(--primaryColorDark);
 }
 
@@ -246,4 +249,8 @@ progress {
 
 [hidden] {
   display: none !important;
+}
+
+svg {
+  fill: currentColor;
 }

@@ -66,6 +66,20 @@ balance between being short and staying explicit. I find `u-maw-100` too hard
 to decipher. And `u:display-block` would be too long. Tailwind is probably a
 good source of inspiration for that.
 
+| Property | class 1 | class 2 | class 3 | class 4 | class 5 |
+| `display` | `.u:block` | `.u-flex` | `.u-grid` | `.u-contents` | |
+| `overflow` | `.u:overflow-auto` | `.u:overflow-hidden` | | | |
+| `position` | `.u:absolute` | `.u:relative` | | | |
+| `box-shadow` | `.u:box-shadow-1` | | | | |
+| `cursor` | `.u:cursor-pointer` | | | | |
+
+*Notes:*
+
+- there is no utility class for `display: hidden`, you can use the
+  [`hidden` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden).
+- I would like to limit the number of utilities class, maybe try with a limit
+  of 100 and see what it gives.
+
 ### Elements
 
 - `e:title1`
