@@ -1,0 +1,11 @@
+<h1>my Benenos (Cerfs)</h1>
+
+<h2>Login as:</h2>
+
+<form method="post">
+  <input type="hidden" name="state" value="<%= @params["state"] %>" />
+  <input type="hidden" name="nonce" value="<%= @params["nonce"] %>" />
+  <input type="hidden" name="redirect_uri" value="<%= @params["redirect_uri"] %>" />
+  <input type="hidden" name="code" value="alice" />
+  <button class="e:btn">Alice</button>
+</form>
