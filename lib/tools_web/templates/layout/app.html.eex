@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/tools.css") %>"/>
   </head>
-  <body>
+  <body class="view-<%= view(@conn) %>">
     <main role="main">
       <%= @inner_content %>
     </main>

@@ -16,3 +16,7 @@ main {
   max-width: 72ch;
   margin: auto;
 }
+
+.view-oidc {
+  background-color: var(--chablis);
+}
