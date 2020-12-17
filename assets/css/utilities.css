@@ -32,3 +32,13 @@
 .u\:cursor-pointer {
   cursor: pointer;
 }
+
+.u\:italic {
+  font-style: italic;
+}
+.u\:bold {
+  font-weight: bold;
+}
+.u\:uppercase {
+  text-transform: uppercase;
+}

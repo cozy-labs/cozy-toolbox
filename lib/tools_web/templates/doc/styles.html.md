@@ -42,6 +42,28 @@ bit heavier, but it can be useful for custom themes. To start, I have included
 all the CSS variables that was available in Cozy-UI. And I added variables for
 scales (font-size, spacing, z-index, etc.) and breakpoints.
 
+**TODO** list colors
+
+We have 6 CSS variables for breakpoints, they can be used in your CSS code but
+often we rely only on the medium breakpoint as it is one used for mobile vs
+desktop design.
+
+| `--breakpointTeeny` | `375px` |
+| `--breakpointTiny` | `480px` |
+| `--breakpointSmall` | `768px` |
+| `--breakpointMedium` | `1024px` |
+| `--breakpointLarge` | `1200px` |
+| `--breakpointExtraLarge` | `1440px` |
+
+Spacing is used for both margin and paddings:
+
+| `--spacing-xs` | `0.5rem` |
+| `--spacing-s` | `0.75rem` |
+| `--spacing-m` | `1rem` |
+| `--spacing-l` | `1.5rem` |
+| `--spacing-xl` | `2rem` |
+| `--spacing-xxl` | `3rem` |
+
 ### Base
 
 For the CSS reset, I am trying [the new reboot component of
@@ -67,11 +89,12 @@ to decipher. And `u:display-block` would be too long. Tailwind is probably a
 good source of inspiration for that.
 
 | Property | class 1 | class 2 | class 3 | class 4 | class 5 |
-| `display` | `.u:block` | `.u-flex` | `.u-grid` | `.u-contents` | |
+| `display` | `.u:block` | `.u-flex` | `.u:grid` | `.u:contents` | |
 | `overflow` | `.u:overflow-auto` | `.u:overflow-hidden` | | | |
 | `position` | `.u:absolute` | `.u:relative` | | | |
 | `box-shadow` | `.u:box-shadow-1` | | | | |
 | `cursor` | `.u:cursor-pointer` | | | | |
+| `font` | `.u:italic` | `.u:bold` | `.u:uppercase` | | |
 
 *Notes:*
 
