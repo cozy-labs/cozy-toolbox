@@ -105,9 +105,16 @@ good source of inspiration for that.
 
 ### Elements
 
+| Category | class 1 | class 2 | class 3 | class 4 | class 5 |
+| Buttons | `e:btn` | `e:btn-outline` | `e:btn-danger` | | |
+| Titles | | | | | |
+| Texts | | | | | |
+| Cards | `e:card` | `e:card-elevated` | `e:card-inversed` | | |
+| Others | | | | | |
+
+**TODO**
+
 - `e:title1`
-- `e:btn`
-- `e:elevation`
 - `e:sr-only`
 
 ### Components
