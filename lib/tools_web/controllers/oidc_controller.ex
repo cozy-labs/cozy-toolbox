@@ -12,7 +12,11 @@ defmodule ToolsWeb.OidcController do
 
   # https://openid.net/specs/openid-connect-core-1_0.html#AuthResponse
   def authorized(conn, params) do
-    location = "#{params["redirect_uri"]}?code=#{params["code"]}&state=#{params["state"]}&nonce=#{params["nonce"]}"
+    location =
+      "#{params["redirect_uri"]}?code=#{params["code"]}&state=#{params["state"]}&nonce=#{
+        params["nonce"]
+      }"
+
     redirect(conn, external: location)
   end
 
