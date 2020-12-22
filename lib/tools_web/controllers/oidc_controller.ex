@@ -28,7 +28,7 @@ defmodule ToolsWeb.OidcController do
 
   # https://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest
   def userinfo(conn, _params) do
-    myCloudUrl = "alice.cozy.tools:8080"
-    json(conn, %{sub: 123, myCloudUrl: myCloudUrl})
+    my_cloud_url = "alice.cozy.tools:8080"
+    json(conn, %{sub: 123, myCloudUrl: my_cloud_url})
   end
 end

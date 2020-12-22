@@ -26,6 +26,7 @@ defmodule ToolsWeb.Router do
   scope "/", ToolsWeb do
     pipe_through :api
     post "/swift/v3/auth/tokens", Swift.IdentityController, :tokens
+    get "/swift/info", Swift.InfoController, :index
   end
 
   # Fake OIDC server
