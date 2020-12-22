@@ -109,7 +109,12 @@ good source of inspiration for that.
 | Buttons | `e:btn` | `e:btn-outline` | `e:btn-danger` | `e:link` | |
 | Titles | `e:h1` | `e:h2` | `e:h3` | `e:h4` | |
 | Texts | `e:body1` | `e:body2` | `e:caption` | | |
-| Cards | `e:card` | `e:card-elevated` | `e:card-inversed` | | |
+| Cards | `e:card` | `e:card-elevated` | `e:card-inversed` | `e:card-notice` | |
+
+*Notes:* it is common to have several utilities classes on the same tag, but
+for elements classes, one should be enough.
+
+**TODO:** wizard, c-avatar, o-field, c-label, c-chip, controls
 
 ### Components
 

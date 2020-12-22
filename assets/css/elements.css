@@ -123,7 +123,10 @@ e\:caption {
 }
 
 /* Cards - https://zpl.io/29r7WAl */
-e\:card {
+e\:card,
+e\:card-elevated,
+e\:card-inversed,
+e\:card-notice {
   padding: 1rem;
   border-radius: 0.5rem;
   border: solid 1px var(--silver);
@@ -144,6 +147,10 @@ e\:card-inversed::before {
   right: 0;
   background: var(--white);
   opacity: 0.24;
+}
+
+e\:card-notice {
+  background: var(--paleGrey);
 }
 
 /* CSS transitions */
