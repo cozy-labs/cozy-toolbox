@@ -82,14 +82,13 @@ html {
 
   /* Fonts */
   --primaryFont: Lato, sans-serif;
-  --h1FontSize: 1.5rem;
-  --h2FontSize: 1.25rem;
-  --h3FontSize: 1.125rem;
-  --h4FontSize: 1rem;
+  --h1FontSize: 3rem;
+  --h2FontSize: 2rem;
+  --h3FontSize: 1.5rem;
+  --h4FontSize: 1.125rem;
   --textFontSize: 1rem;
-  --captionFontSize: 0.75rem;
-  --subtitleFontSize: 0.75rem;
   --smallFontSize: 0.875rem;
+  --captionFontSize: 0.75rem;
 
   /* Breakpoints */
   --breakpointTeeny: 375px;

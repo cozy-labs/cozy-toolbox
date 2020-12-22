@@ -70,6 +70,47 @@ e\:btn-danger[disabled]:hover {
   background-color: var(--errorColor);
 }
 
+/* Typography - https://zpl.io/2pEroGy */
+e\:h1,
+e\:h2,
+e\:h3,
+e\:h4 {
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 1.167;
+}
+e\:h1 {
+  font-size: var(--h1FontSize);
+  letter-spacing: -0.8;
+  line-height: 1.087;
+}
+e\:h2 {
+  font-size: var(--h2FontSize);
+  letter-spacing: -0.4;
+}
+e\:h3 {
+  font-size: var(--h3FontSize);
+}
+e\:h4 {
+  font-size: var(--h4FontSize);
+}
+
+e\:body1,
+e\:body2,
+e\:caption {
+  letter-spacing: 0;
+  line-height: 1.313;
+}
+e\:body1 {
+  font-size: var(--textFontSize);
+}
+e\:body2 {
+  font-size: var(--smallFontSize);
+}
+e\:caption {
+  font-size: var(--captionFontSize);
+}
+
 /* Cards - https://zpl.io/29r7WAl */
 e\:card {
   padding: 1rem;
