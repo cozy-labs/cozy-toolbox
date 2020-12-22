@@ -92,9 +92,12 @@ good source of inspiration for that.
 | `display` | `.u:block` | `.u-flex` | `.u:grid` | `.u:contents` | |
 | `overflow` | `.u:overflow-auto` | `.u:overflow-hidden` | | | |
 | `position` | `.u:absolute` | `.u:relative` | | | |
+| `top` & co. | `u:top-0` | `u-bottom-0` | `u:left-0` | `u-right:0` | |
 | `box-shadow` | `.u:box-shadow-1` | | | | |
 | `cursor` | `.u:cursor-pointer` | | | | |
-| `font` | `.u:italic` | `.u:bold` | `.u:uppercase` | | |
+| `text` | `.u:italic` | `.u:bold` | `.u:uppercase` | `u:error` | `u:break-words` |
+
+**TODO:** marging, padding, flex
 
 *Notes:*
 

@@ -6,7 +6,7 @@
       1 compat-tips
       1 domain
       1 field
-      1 .HasCiphers}}c-btn--text
+      1 c-btn--text
       1 hide-on-mobile
       1 lightbox
       1 my-cozy-url
@@ -25,7 +25,8 @@
       1 u-flex-column
       1 u-flex-items-center
       1 u-flex-justify-center
-      1 u-m-0{{else}}c-btn--full
+      1 u-m-0
+      1 c-btn--full
       1 u-m-1
       1 u-mah-4
       1 u-mb-1
@@ -43,18 +44,17 @@
       1 with-sticky-footer
       1 wizard-header
       1 wizard-header-help
-      1 wizard-next
-      1 wizard-next{{end}}
       1 wizard-notice--lost
       1 wizard-password
+      2 wizard-next
       2 auth
       2 c-chip
       2 c-chip--normalSize
       2 c-chip--normalTheme
       2 compat-header
       2 controls
-      2 {{end}}u-text
-      2 .HasShortcut}}u-pl-2
+      2 u-text
+      2 u-pl-2
       2 login
       2 logo-avatar
       2 not
@@ -74,7 +74,6 @@
       3 c-input-checkbox
       3 container
       3 help
-      3 {{if
       3 popup
       3 u-flex
       3 u-fz-small
