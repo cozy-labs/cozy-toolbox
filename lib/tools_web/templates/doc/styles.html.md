@@ -106,7 +106,7 @@ good source of inspiration for that.
 ### Elements
 
 | Category | class 1 | class 2 | class 3 | class 4 | class 5 |
-| Buttons | `e:btn` | `e:btn-outline` | `e:btn-danger` | | |
+| Buttons | `e:btn` | `e:btn-outline` | `e:btn-danger` | `e:link` | |
 | Titles | `e:h1` | `e:h2` | `e:h3` | `e:h4` | |
 | Texts | `e:body1` | `e:body2` | `e:caption` | | |
 | Cards | `e:card` | `e:card-elevated` | `e:card-inversed` | | |

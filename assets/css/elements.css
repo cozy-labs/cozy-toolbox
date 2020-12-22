@@ -37,7 +37,7 @@ e\:btn[disabled]:hover {
 }
 
 e\:btn-outline,
-e\:btn:visited {
+e\:btn-outline:visited {
   background-color: var(--secondaryButtonPrimaryColor);
   color: var(--secondaryButtonConstrastColor);
   border-color: var(--secondaryButtonSecondaryColor);
@@ -68,6 +68,17 @@ e\:btn-danger:focus {
 e\:btn-danger[disabled]:hover {
   border-color: var(--errorColor);
   background-color: var(--errorColor);
+}
+
+e\:link {
+  color: var(--dodgerBlue);
+  text-decoration: none;
+}
+e\:link:visited,
+e\:link:active,
+e\:link:hover,
+e\:link:focus {
+  color: var(--scienceBlue);
 }
 
 /* Typography - https://zpl.io/2pEroGy */
@@ -133,4 +144,14 @@ e\:card-inversed::before {
   right: 0;
   background: var(--white);
   opacity: 0.24;
+}
+
+/* CSS transitions */
+@media (prefers-reduced-motion: no-preference) {
+  e\:btn,
+  e\:btn-outline,
+  e\:btn-danger,
+  e\:link {
+    transition: all 0.2s ease-in-out;
+  }
 }
