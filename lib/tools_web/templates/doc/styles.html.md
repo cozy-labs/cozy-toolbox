@@ -90,6 +90,7 @@ good source of inspiration for that.
 
 | Property | class 1 | class 2 | class 3 | class 4 | class 5 |
 | `display` | `.u:block` | `.u-flex` | `.u:grid` | `.u:contents` | |
+| `flex` | `u:flex-col` | `u:flex-auto` | `u:justify-center` | `u:justify-between` | `u:items-center` |
 | `overflow` | `.u:overflow-auto` | `.u:overflow-hidden` | | | |
 | `position` | `.u:absolute` | `.u:relative` | | | |
 | `top` & co. | `u:top-0` | `u-bottom-0` | `u:left-0` | `u-right:0` | |
@@ -97,7 +98,7 @@ good source of inspiration for that.
 | `cursor` | `.u:cursor-pointer` | | | | |
 | `text` | `.u:italic` | `.u:bold` | `.u:uppercase` | `u:error` | `u:break-words` |
 
-**TODO:** marging, padding, flex
+**TODO:** marging, padding
 
 *Notes:*
 
@@ -117,7 +118,7 @@ good source of inspiration for that.
 *Notes:* it is common to have several utilities classes on the same tag, but
 for elements classes, one should be enough.
 
-**TODO:** wizard, c-avatar, o-field, c-label, c-chip, controls
+**TODO:** wizard, c-avatar, o-field, c-label, c-chip, controls, divide
 
 ### Components
 

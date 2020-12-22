@@ -11,6 +11,22 @@
   display: contents;
 }
 
+u\:flex-col {
+  flex-direction: column;
+}
+u\:flex-auto {
+  flex: 1 1 auto;
+}
+u\:justify-center {
+  justify-content: center;
+}
+u\:justify-between {
+  justify-content: space-between;
+}
+u\:items-center {
+  align-items: center;
+}
+
 .u\:overflow-auto {
   overflow: auto;
 }
