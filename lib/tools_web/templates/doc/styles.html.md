@@ -98,14 +98,21 @@ good source of inspiration for that.
 | `cursor` | `.u:cursor-pointer` | | | | |
 | `text` | `.u:italic` | `.u:bold` | `.u:uppercase` | `u:error` | `u:break-words` |
 
-**TODO:** marging, padding
+For margin and padding, we have a lot of possibilities
+(`u:[mp][tlbr]?-(0|xs|s|m|l|xl|xxl)`):
+
+* `u:m-s` will apply a small margin (`0.75rem`)
+* `u:p-l` will apply a large padding (`1.5rem`)
+* `u:mr-xl` will apply an extra large margin on the right (`2rem`)
+* `u:pb-0` will remove the padding on the bottom (`0rem`)
 
 *Notes:*
 
 - there is no utility class for `display: hidden`, you can use the
   [`hidden` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden).
 - I would like to limit the number of utilities class, maybe try with a limit
-  of 100 and see what it gives.
+  of 100 and see what it gives. Most slots are used by margin and padding, but
+  it is where the utility classes are the most useful in my humble opinion.
 
 ### Elements
 

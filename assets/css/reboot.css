@@ -31,7 +31,7 @@ body {
 }
 
 hr {
-  margin: 1rem 0;
+  margin: var(--spacing-m) 0;
   color: inherit;
   background-color: currentColor;
   border: 0;
@@ -47,7 +47,7 @@ h2,
 h3,
 h4 {
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--spacing-xs);
   font-weight: 500;
   line-height: 1.167;
 }
@@ -67,15 +67,15 @@ h4 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-m);
   hyphens: auto;
 }
 
 ol,
 ul {
-  padding-left: 2rem;
+  padding-left: var(--spacing-xl);
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-m);
 }
 
 ol ol,
@@ -86,7 +86,7 @@ ul ol {
 }
 
 blockquote {
-  margin: 0 0 1rem;
+  margin: 0 0 var(--spacing-m);
 }
 
 b,
@@ -124,7 +124,7 @@ samp {
 pre {
   display: block;
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: var(--spacing-m);
   overflow: auto;
   font-size: var(--smallFontSize);
 }
@@ -154,8 +154,8 @@ table {
 }
 
 caption {
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding-top: var(--spacing-m);
+  padding-bottom: var(--spacing-m);
   color: var(--darkPeriwinkle);
   text-align: left;
 }

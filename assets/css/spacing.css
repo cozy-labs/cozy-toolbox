@@ -1,0 +1,197 @@
+u\:m-0 {
+  margin: 0;
+}
+u\:mt-0 {
+  margin-top: 0;
+}
+u\:ml-0 {
+  margin-left: 0;
+}
+u\:mb-0 {
+  margin-bottom: 0;
+}
+u\:mr-0 {
+  margin-right: 0;
+}
+u\:m-xs {
+  margin: var(--spacing-xs);
+}
+u\:mt-xs {
+  margin-top: var(--spacing-xs);
+}
+u\:ml-xs {
+  margin-left: var(--spacing-xs);
+}
+u\:mb-xs {
+  margin-bottom: var(--spacing-xs);
+}
+u\:mr-xs {
+  margin-right: var(--spacing-xs);
+}
+u\:m-s {
+  margin: var(--spacing-s);
+}
+u\:mt-s {
+  margin-top: var(--spacing-s);
+}
+u\:ml-s {
+  margin-left: var(--spacing-s);
+}
+u\:mb-s {
+  margin-bottom: var(--spacing-s);
+}
+u\:mr-s {
+  margin-right: var(--spacing-s);
+}
+u\:m-m {
+  margin: var(--spacing-m);
+}
+u\:mt-m {
+  margin-top: var(--spacing-m);
+}
+u\:ml-m {
+  margin-left: var(--spacing-m);
+}
+u\:mb-m {
+  margin-bottom: var(--spacing-m);
+}
+u\:mr-m {
+  margin-right: var(--spacing-m);
+}
+u\:m-l {
+  margin: var(--spacing-l);
+}
+u\:mt-l {
+  margin-top: var(--spacing-l);
+}
+u\:ml-l {
+  margin-left: var(--spacing-l);
+}
+u\:mb-l {
+  margin-bottom: var(--spacing-l);
+}
+u\:mr-l {
+  margin-right: var(--spacing-l);
+}
+u\:m-xl {
+  margin: var(--spacing-xl);
+}
+u\:mt-xl {
+  margin-top: var(--spacing-xl);
+}
+u\:ml-xl {
+  margin-left: var(--spacing-xl);
+}
+u\:mb-xl {
+  margin-bottom: var(--spacing-xl);
+}
+u\:mr-xl {
+  margin-right: var(--spacing-xl);
+}
+u\:m-xxl {
+  margin: var(--spacing-xxl);
+}
+u\:mt-xxl {
+  margin-top: var(--spacing-xxl);
+}
+u\:ml-xxl {
+  margin-left: var(--spacing-xxl);
+}
+u\:mb-xxl {
+  margin-bottom: var(--spacing-xxl);
+}
+u\:mr-xxl {
+  margin-right: var(--spacing-xxl);
+}
+
+u\:p-0 {
+  padding: 0;
+}
+u\:pt-0 {
+  padding-top: 0;
+}
+u\:pl-0 {
+  padding-left: 0;
+}
+u\:pb-0 {
+  padding-bottom: 0;
+}
+u\:pr-0 {
+  padding-right: 0;
+}
+u\:p-xs {
+  padding: var(--spacing-xs);
+}
+u\:pt-xs {
+  padding-top: var(--spacing-xs);
+}
+u\:pl-xs {
+  padding-left: var(--spacing-xs);
+}
+u\:pb-xs {
+  padding-bottom: var(--spacing-xs);
+}
+u\:pr-xs {
+  padding-right: var(--spacing-xs);
+}
+u\:p-s {
+  padding: var(--spacing-s);
+}
+u\:pt-s {
+  padding-top: var(--spacing-s);
+}
+u\:pl-s {
+  padding-left: var(--spacing-s);
+}
+u\:pb-s {
+  padding-bottom: var(--spacing-s);
+}
+u\:pr-s {
+  padding-right: var(--spacing-s);
+}
+u\:p-m {
+  padding: var(--spacing-m);
+}
+u\:pt-m {
+  padding-top: var(--spacing-m);
+}
+u\:pl-m {
+  padding-left: var(--spacing-m);
+}
+u\:pb-m {
+  padding-bottom: var(--spacing-m);
+}
+u\:pr-m {
+  padding-right: var(--spacing-m);
+}
+u\:p-l {
+  padding: var(--spacing-l);
+}
+u\:pt-l {
+  padding-top: var(--spacing-l);
+}
+u\:pl-l {
+  padding-left: var(--spacing-l);
+}
+u\:pb-l {
+  padding-bottom: var(--spacing-l);
+}
+u\:pr-l {
+  padding-right: var(--spacing-l);
+}
+u\:p-xl {
+  padding: var(--spacing-xl);
+}
+u\:pt-xl {
+  padding-top: var(--spacing-xl);
+}
+u\:pl-xl {
+  padding-left: var(--spacing-xl);
+}
+u\:pb-xl {
+  padding-bottom: var(--spacing-xl);
+}
+u\:pr-xl {
+  padding-right: var(--spacing-xl);
+}
+/* I don't think we need a xxl variant for paddings. */
