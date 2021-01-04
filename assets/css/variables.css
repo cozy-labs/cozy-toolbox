@@ -55,6 +55,8 @@ html {
   --primaryTextColor: var(--charcoalGrey);
   --secondaryTextColor: var(--coolGrey);
   --primaryContrastTextColor: var(--white);
+  --linkColor: var(--primaryColor);
+  --linkColorActive: var(--primaryColorDark);
   --invertedTabsActiveTextColor: var(--primaryContrastTextColor);
   --invertedTabsInactiveTextColor: var(--primaryContrastTextColor);
   --invertedTabsIndicatorColor: var(--primaryContrastTextColor);

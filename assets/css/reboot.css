@@ -99,7 +99,7 @@ small {
 }
 
 a {
-  color: var(--primaryColor);
+  color: var(--linkColor);
   text-decoration: underline;
   text-decoration-skip-ink: auto;
 }
@@ -107,7 +107,7 @@ a:hover,
 a:active,
 a:focus,
 a:visited {
-  color: var(--primaryColorDark);
+  color: var(--linkColorActive);
 }
 
 pre,

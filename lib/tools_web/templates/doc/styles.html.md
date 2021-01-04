@@ -93,7 +93,7 @@ good source of inspiration for that.
 | `flex` | `u:flex-col` | `u:flex-auto` | `u:justify-center` | `u:justify-between` | `u:items-center` |
 | `overflow` | `.u:overflow-auto` | `.u:overflow-hidden` | | | |
 | `position` | `.u:absolute` | `.u:relative` | | | |
-| `top` & co. | `u:top-0` | `u-bottom-0` | `u:left-0` | `u-right:0` | |
+| `top` & co. | `u:top-0` | `u:bottom-0` | `u:left-0` | `u-right:0` | |
 | `box-shadow` | `.u:box-shadow-1` | | | | |
 | `cursor` | `.u:cursor-pointer` | | | | |
 | `text` | `.u:italic` | `.u:bold` | `.u:uppercase` | `u:error` | `u:break-words` |
