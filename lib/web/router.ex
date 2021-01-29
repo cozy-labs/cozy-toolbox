@@ -14,6 +14,7 @@ defmodule Web.Router do
     pipe_through :browser
     get "/", PageController, :index
     get "/doc/:page", DocController, :show
+    resources "/instances", InstanceController, only: [:index]
     live_dashboard "/dashboard", metrics: Web.Telemetry
   end
 
