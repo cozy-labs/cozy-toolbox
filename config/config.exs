@@ -8,10 +8,10 @@
 use Mix.Config
 
 # Configures the endpoint
-config :tools, ToolsWeb.Endpoint,
+config :tools, Web.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "W2c5erb5aWNhFth1SuiHY/H3mZ2/dPKw+kMbUwRpbiUS/KSwBJ8WSMvyuvojy6UW",
-  render_errors: [view: ToolsWeb.ErrorView, accepts: ~w(html json), layout: false],
+  render_errors: [view: Web.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Tools.PubSub,
   live_view: [signing_salt: "SCwMbZzo"]
 
