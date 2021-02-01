@@ -7,9 +7,11 @@ defmodule Web.Models.Instance do
   defstruct [:id, :domain]
 
   def list(couch) do
-    couch
-    |> Couch.list("global/instances")
-    |> Enum.map(fn x -> Instance.from_params(x) end)
+    {:ok, %Tesla.Env{body: body}} = Couch.all_docs(couch, "global/instances")
+
+    body["rows"]
+    |> Enum.reject(fn row -> Couch.design_doc?(row) end)
+    |> Enum.map(fn row -> Instance.from_params(row["doc"]) end)
   end
 
   def from_params(params) do

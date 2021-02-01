@@ -45,6 +45,9 @@ defmodule Tools.MixProject do
       {:phoenix_markdown, "~> 1.0"},
       # More recent versions need elixir 1.10+
       {:earmark, "1.4.10"},
+      {:castore, "~> 0.1"},
+      {:mint, "~> 1.0"},
+      {:tesla, "~> 1.4"},
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false}
     ]
   end

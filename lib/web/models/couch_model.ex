@@ -7,10 +7,20 @@ defmodule Web.Models.Couch do
 
   def default, do: %Couch{url: "http://localhost:5984"}
 
-  def list(%Couch{url: url}, db) do
-    [
-      %{"id" => "1", "domain" => "alice.cozy.tools:8080"},
-      %{"id" => "2", "domain" => "bob.cozy.tools:8080"}
-    ]
+  def design_doc?(%{"id" => "_design/" <> _rest}), do: true
+  def design_doc?(_row), do: false
+
+  def all_docs(%Couch{url: url}, db) do
+    client(url)
+    |> Tesla.get("/#{URI.encode_www_form(db)}/_all_docs?include_docs=true")
+  end
+
+  defp client(base_url) do
+    Tesla.client([
+      {Tesla.Middleware.BaseUrl, base_url},
+      {Tesla.Middleware.Timeout, timeout: 10_000},
+      # Tesla.Middleware.Logger,
+      Tesla.Middleware.JSON
+    ])
   end
 end
