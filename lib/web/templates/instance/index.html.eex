@@ -2,6 +2,8 @@
 
 <ul>
   <%= for instance <- @instances do %>
-    <li><%= instance.domain %></li>
+    <li><a href="<%= Routes.instance_path(@conn, :show, instance.id) %>">
+      <%= instance.domain %>
+    </a></li>
   <% end %>
 </ul>

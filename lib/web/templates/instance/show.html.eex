@@ -1,0 +1,9 @@
+<h1><%= @instance.domain %></h1>
+
+<ul>
+  <%= for doctype <- @doctypes do %>
+    <li><a href="<%= doctype.fauxton %>">
+      <%= doctype.name %>
+    </a></li>
+  <% end %>
+</ul>

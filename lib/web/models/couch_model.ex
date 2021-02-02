@@ -15,6 +15,27 @@ defmodule Web.Models.Couch do
     |> Tesla.get("/#{URI.encode_www_form(db)}/_all_docs?include_docs=true")
   end
 
+  def get_doc(%Couch{url: url}, db, id) do
+    client(url)
+    |> Tesla.get("/#{URI.encode_www_form(db)}/#{id}")
+  end
+
+  def all_databases(%Couch{url: url}, options \\ []) do
+    prefix = Keyword.get(options, :prefix)
+
+    query =
+      if prefix do
+        "?startkey=%22#{prefix}/%22&endkey=%22#{prefix}0%22"
+      else
+        ""
+      end
+
+    path = "/_all_dbs#{query}"
+
+    client(url)
+    |> Tesla.get(path)
+  end
+
   defp client(base_url) do
     Tesla.client([
       {Tesla.Middleware.BaseUrl, base_url},
