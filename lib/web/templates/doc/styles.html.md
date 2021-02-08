@@ -89,14 +89,14 @@ to decipher. And `u:display-block` would be too long. Tailwind is probably a
 good source of inspiration for that.
 
 | Property | class 1 | class 2 | class 3 | class 4 | class 5 |
-| `display` | `.u:block` | `.u-flex` | `.u:grid` | `.u:contents` | |
+| `display` | `u:block` | `u-flex` | `u:grid` | `u:contents` | |
 | `flex` | `u:flex-col` | `u:flex-auto` | `u:justify-center` | `u:justify-between` | `u:items-center` |
-| `overflow` | `.u:overflow-auto` | `.u:overflow-hidden` | | | |
-| `position` | `.u:absolute` | `.u:relative` | | | |
+| `overflow` | `u:overflow-auto` | `u:overflow-hidden` | | | |
+| `position` | `u:absolute` | `u:relative` | | | |
 | `top` & co. | `u:top-0` | `u:bottom-0` | `u:left-0` | `u-right:0` | |
-| `box-shadow` | `.u:box-shadow-1` | | | | |
-| `cursor` | `.u:cursor-pointer` | | | | |
-| `text` | `.u:italic` | `.u:bold` | `.u:uppercase` | `u:error` | `u:break-words` |
+| `box-shadow` | `u:box-shadow-1` | | | | |
+| `cursor` | `u:cursor-pointer` | | | | |
+| `text` | `u:italic` | `u:bold` | `u:uppercase` | `u:error` | `u:break-words` |
 
 For margin and padding, we have a lot of possibilities
 (`u:[mp][tlbr]?-(0|xs|s|m|l|xl|xxl)`):

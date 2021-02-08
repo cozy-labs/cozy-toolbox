@@ -17,6 +17,12 @@ main {
   margin: auto;
 }
 
+.view-doc table {
+  margin-left: clamp(-20%, 50% - 50vw, 0px);
+  margin-right: clamp(-20%, 50% - 50vw, 0px);
+  width: min(100vw, 140%);
+}
+
 .view-oidc {
   background-color: var(--chablis);
 }
