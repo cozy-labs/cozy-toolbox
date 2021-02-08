@@ -18,7 +18,7 @@ module.exports = (env, options) => {
     },
     entry: {
       app: "./js/app.js",
-      tools: "./js/tools.js",
+      toolbox: "./js/toolbox.js",
     },
     output: {
       filename: "[name].js",

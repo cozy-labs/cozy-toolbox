@@ -1,9 +1,9 @@
-Tools.css
-=========
+Toolbox.css
+===========
 
 ## Introduction
 
-Tools.css aims to be a CSS framework for Cozy Cloud applications that are not
+Toolbox.css aims to be a CSS framework for Cozy Cloud applications that are not
 in React.
 
 Historically, Cozy-UI was our toolkit for UI purposes and was covering both the
@@ -16,17 +16,17 @@ at its best by keep this split direction of Cozy-UI. So, using Cozy-UI in an
 app via a CSS file is going to be deprecated. We still want to share the CSS
 variables of the theme, but that's all.
 
-Tools.css comes as an experiment to have a light CSS framework for styling some
-HTML pages where there is no React, like for the stack or Cozy-Move. As the name
-suggests, it just gives a CSS file to include as is, with some instructions on
-how to use it best. It does not have tons of components or inspire to be generic.
-It is more a focused approach for my needs as a back-end developer that is
-competent in CSS but definitely not an expert.
+Toolbox.css comes as an experiment to have a light CSS framework for styling
+some HTML pages where there is no React, like for the stack or Cozy-Move. As
+the name suggests, it just gives a CSS file to include as is, with some
+instructions on how to use it best. It does not have tons of components or
+inspire to be generic. It is more a focused approach for my needs as a back-end
+developer that is competent in CSS but definitely not an expert.
 
 
 ## Organisation
 
-Tools.css is organized in several parts :
+Toolbox.css is organized in several parts :
 
 - CSS **variables** for the design tokens (fonts, colors, spacing scale, etc.)
 - **Base**, with a CSS reset and some global CSS rules on tags
@@ -80,7 +80,7 @@ In particular, I have used the CSS variables defined sooner.
 [Tachyons](http://tachyons.io/) and [Tailwind](https://tailwindcss.com/) are
 nice CSS frameworks with lots of utilities. We don't aim to have the same
 numbers of utilities, just the most common. Even Cozy-UI had stuff like `u-dit`
-for `display: inline-table` that I consider too rare to include in tools.css.
+for `display: inline-table` that I consider too rare to include in toolbox.css.
 Keep it light and simple!
 
 The CSS classes for utilites are prefixed by `u:` and their name should find a
@@ -132,7 +132,7 @@ for elements classes, one should be enough.
 - `c:address`
 - `c:modal`
 
-**Note:** tools.css does not provide JS code, it's your job to include the JS
+**Note:** toolbox.css does not provide JS code, it's your job to include the JS
 to make the dynamic aspect of the components.
 
 ### Layouts
@@ -144,9 +144,9 @@ are prefixed by `l:`.
 
 ## How to use it
 
-First, you should include the `tools.css` file in your HTML page. And you
+First, you should include the `toolbox.css` file in your HTML page. And you
 should probably also include your own CSS file, as you will probably have some
-CSS rules to cover things not included in `tools.css`. You should also load
+CSS rules to cover things not included in `toolbox.css`. You should also load
 the web-fonts for Lato.
 
 ```html
@@ -158,7 +158,7 @@ the web-fonts for Lato.
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{.Title}}</title>
   <link rel="stylesheet" href="app.css">
-  <link rel="stylesheet" href="tools.css">
+  <link rel="stylesheet" href="toolbox.css">
 </head>
 
 <body>

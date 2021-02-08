@@ -1,4 +1,4 @@
-# Tools
+# Toolbox
 
 To start your Phoenix server:
 

@@ -1,7 +1,8 @@
 # Fake OIDC server
 
-Cozy-tools can be used to test delegated authentication with a local cozy-stack
-by providing a fake OIDC server. Several configurations are possible:
+Cozy-toolbox can be used to test delegated authentication with a local
+cozy-stack by providing a fake OIDC server. Several configurations are
+possible:
 
 ## Cerfs
 

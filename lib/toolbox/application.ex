@@ -1,4 +1,4 @@
-defmodule Tools.Application do
+defmodule Toolbox.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -10,16 +10,16 @@ defmodule Tools.Application do
       # Start the Telemetry supervisor
       Web.Telemetry,
       # Start the PubSub system
-      {Phoenix.PubSub, name: Tools.PubSub},
+      {Phoenix.PubSub, name: Toolbox.PubSub},
       # Start the Endpoint (http/https)
       Web.Endpoint
-      # Start a worker by calling: Tools.Worker.start_link(arg)
-      # {Tools.Worker, arg}
+      # Start a worker by calling: Toolbox.Worker.start_link(arg)
+      # {Toolbox.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Tools.Supervisor]
+    opts = [strategy: :one_for_one, name: Toolbox.Supervisor]
     Supervisor.start_link(children, opts)
   end
 

@@ -8,11 +8,11 @@
 use Mix.Config
 
 # Configures the endpoint
-config :tools, Web.Endpoint,
+config :toolbox, Web.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "W2c5erb5aWNhFth1SuiHY/H3mZ2/dPKw+kMbUwRpbiUS/KSwBJ8WSMvyuvojy6UW",
   render_errors: [view: Web.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: Tools.PubSub,
+  pubsub_server: Toolbox.PubSub,
   live_view: [signing_salt: "SCwMbZzo"]
 
 # Configures Elixir's Logger
