@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/toolbox.css") %>"/>
   </head>
   <body class="view-<%= view(@conn) %>">
+    <nav class="bar">
+      <a href="/"><%= img_tag(Routes.static_path(@conn, "/images/wrench-circle.svg"), alt: "home") %></a>
+      <a href="/doc/styles"><%= img_tag(Routes.static_path(@conn, "/images/palette.svg"), alt: "doc CSS") %></a>
+      <a href="/oidc"><%= img_tag(Routes.static_path(@conn, "/images/people.svg"), alt: "fake OIDC") %></a>
+      <a href="/swift"><%= img_tag(Routes.static_path(@conn, "/images/folder.svg"), alt: "fake Swift") %></a>
+    </nav>
     <main role="main">
       <%= @inner_content %>
     </main>
