@@ -13,6 +13,7 @@ defmodule Web.Router do
   scope "/", Web do
     pipe_through :browser
     get "/", PageController, :index
+    get "/avatars/:seed", AvatarController, :show
     get "/doc/:page", DocController, :show
     resources "/instances", InstanceController, only: [:index, :show]
     live_dashboard "/dashboard", metrics: Web.Telemetry

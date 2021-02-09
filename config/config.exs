@@ -15,6 +15,8 @@ config :toolbox, Web.Endpoint,
   pubsub_server: Toolbox.PubSub,
   live_view: [signing_salt: "SCwMbZzo"]
 
+config :toolbox, Web.Models.Avatar, cache_dir: :filename.basedir(:user_cache, "toolbox/avatars")
+
 # Configures Elixir's Logger
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
