@@ -1,1 +1,12 @@
 <h1>Cozy Toolbox</h1>
+
+<ul class="tiles">
+  <%= for instance <- @instances do %>
+    <li>
+      <a href="<%= Routes.instance_path(@conn, :show, instance.id) %>">
+        <%= img_tag(Routes.avatar_path(@conn, :show, instance.domain)) %>
+        <%= instance.domain %>
+      </a>
+    </li>
+  <% end %>
+</ul>

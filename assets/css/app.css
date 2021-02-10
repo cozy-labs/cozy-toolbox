@@ -46,8 +46,49 @@ main {
   background-size: cover;
 }
 
-.view-page h1 {
+.view-page main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   color: white;
+  height: 100%;
+}
+
+.view-page h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.view-page .tiles {
+  padding-bottom: 20rem;
+}
+
+.tiles {
+  display: flex;
+  list-style: none;
+}
+
+.tiles li {
+  position: relative;
+  margin: 1rem;
+}
+
+.tiles a,
+.tiles a:active,
+.tiles a:hover,
+.tiles a:focus,
+.tiles a:visited {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0 0 0.2rem black;
+}
+
+.tiles img {
+  border-radius: 0.5rem;
 }
 
 .view-doc table {

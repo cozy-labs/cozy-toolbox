@@ -1,3 +1,5 @@
+<%= img_tag(Routes.avatar_path(@conn, :show, @instance.domain)) %>
+
 <h1><%= @instance.domain %></h1>
 
 <ul>

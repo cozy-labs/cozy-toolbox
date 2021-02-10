@@ -4,7 +4,7 @@ defmodule Web.Models.Instance do
   alias Web.Models.Couch
   alias Web.Models.Instance
 
-  defstruct [:id, :domain, :prefix]
+  defstruct [:id, :domain, :prefix, :name]
 
   def list(couch) do
     {:ok, %Tesla.Env{body: body}} = Couch.all_docs(couch, "global/instances")
