@@ -120,6 +120,7 @@ For margin and padding, we have a lot of possibilities
 | Titles | `e-h1` | `e-h2` | `e-h3` | `e-h4` | |
 | Texts | `e-body1` | `e-body2` | `e-caption` | | |
 | Cards | `e-card` | `e-card-elevated` | `e-card-inversed` | `e-card-notice` | |
+| Others | `e-fullbleed` | | | | |
 
 *Notes:* it is common to have several utilities classes on the same tag, but
 for elements classes, one should be enough.
