@@ -82,28 +82,28 @@ numbers of utilities, just the most common. Even Cozy-UI had stuff like `u-dit`
 for `display: inline-table` that I consider too rare to include in toolbox.css.
 Keep it light and simple!
 
-The CSS classes for utilites are prefixed by `u:` and their name should find a
+The CSS classes for utilites are prefixed by `u-` and their name should find a
 balance between being short and staying explicit. I find `u-maw-100` too hard
-to decipher. And `u:display-block` would be too long. Tailwind is probably a
+to decipher. And `u-display-block` would be too long. Tailwind is probably a
 good source of inspiration for that.
 
 | Property | class 1 | class 2 | class 3 | class 4 | class 5 |
-| `display` | `u:block` | `u:flex` | `u:grid` | `u:contents` | |
-| `flex` | `u:flex-col` | `u:flex-auto` | `u:justify-center` | `u:justify-between` | `u:items-center` |
-| `overflow` | `u:overflow-auto` | `u:overflow-hidden` | | | |
-| `position` | `u:absolute` | `u:relative` | | | |
-| `top` & co. | `u:top-0` | `u:bottom-0` | `u:left-0` | `u-right:0` | |
-| `box-shadow` | `u:box-shadow-1` | | | | |
-| `cursor` | `u:cursor-pointer` | | | | |
-| `text` | `u:italic` | `u:bold` | `u:uppercase` | `u:error` | `u:break-words` |
+| `display` | `u-block` | `u-flex` | `u-grid` | `u-contents` | |
+| `flex` | `u-flex-col` | `u-flex-auto` | `u-justify-center` | `u-justify-between` | `u-items-center` |
+| `overflow` | `u-overflow-auto` | `u-overflow-hidden` | | | |
+| `position` | `u-absolute` | `u-relative` | | | |
+| `top` & co. | `u-top-0` | `u-bottom-0` | `u-left-0` | `u-right:0` | |
+| `box-shadow` | `u-box-shadow-1` | | | | |
+| `cursor` | `u-cursor-pointer` | | | | |
+| `text` | `u-italic` | `u-bold` | `u-uppercase` | `u-error` | `u-break-words` |
 
 For margin and padding, we have a lot of possibilities
-(`u:[mp][tlbr]?-(0|xs|s|m|l|xl|xxl)`):
+(`u-[mp][tlbr]?-(0|xs|s|m|l|xl|xxl)`):
 
-* `u:m-s` will apply a small margin (`0.75rem`)
-* `u:p-l` will apply a large padding (`1.5rem`)
-* `u:mr-xl` will apply an extra large margin on the right (`2rem`)
-* `u:pb-0` will remove the padding on the bottom (`0rem`)
+* `u-m-s` will apply a small margin (`0.75rem`)
+* `u-p-l` will apply a large padding (`1.5rem`)
+* `u-mr-xl` will apply an extra large margin on the right (`2rem`)
+* `u-pb-0` will remove the padding on the bottom (`0rem`)
 
 *Notes:*
 
@@ -116,10 +116,10 @@ For margin and padding, we have a lot of possibilities
 ### Elements
 
 | Category | class 1 | class 2 | class 3 | class 4 | class 5 |
-| Buttons | `e:btn` | `e:btn-outline` | `e:btn-danger` | `e:link` | |
-| Titles | `e:h1` | `e:h2` | `e:h3` | `e:h4` | |
-| Texts | `e:body1` | `e:body2` | `e:caption` | | |
-| Cards | `e:card` | `e:card-elevated` | `e:card-inversed` | `e:card-notice` | |
+| Buttons | `e-btn` | `e-btn-outline` | `e-btn-danger` | `e-link` | |
+| Titles | `e-h1` | `e-h2` | `e-h3` | `e-h4` | |
+| Texts | `e-body1` | `e-body2` | `e-caption` | | |
+| Cards | `e-card` | `e-card-elevated` | `e-card-inversed` | `e-card-notice` | |
 
 *Notes:* it is common to have several utilities classes on the same tag, but
 for elements classes, one should be enough.
@@ -130,8 +130,8 @@ for elements classes, one should be enough.
 
 **TODO:**
 
-- `c:address`
-- `c:modal`
+- `c-address`
+- `c-modal`
 
 **Note:** toolbox.css does not provide JS code, it's your job to include the JS
 to make the dynamic aspect of the components.
