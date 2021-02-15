@@ -15,6 +15,7 @@
 }
 
 body {
+  min-height: 100vh;
   margin: 0;
   font-family: var(--primaryFont);
   font-size: var(--textFontSize);

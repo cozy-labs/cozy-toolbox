@@ -32,8 +32,7 @@ Toolbox.css is organized in several parts :
 - **Base**, with a CSS reset and some global CSS rules on tags
 - **Utilities**, with some classes that maps to a single CSS property
 - **Elements**, with some classes with several CSS properties for a single DOM node
-- **Components**, with a way to style a small group of DOM nodes
-- **Layouts**, to organize the global page layout.
+- **Components**, with a way to style a small group of DOM nodes.
 
 ### CSS variables
 
@@ -89,7 +88,7 @@ to decipher. And `u:display-block` would be too long. Tailwind is probably a
 good source of inspiration for that.
 
 | Property | class 1 | class 2 | class 3 | class 4 | class 5 |
-| `display` | `u:block` | `u-flex` | `u:grid` | `u:contents` | |
+| `display` | `u:block` | `u:flex` | `u:grid` | `u:contents` | |
 | `flex` | `u:flex-col` | `u:flex-auto` | `u:justify-center` | `u:justify-between` | `u:items-center` |
 | `overflow` | `u:overflow-auto` | `u:overflow-hidden` | | | |
 | `position` | `u:absolute` | `u:relative` | | | |
@@ -129,17 +128,13 @@ for elements classes, one should be enough.
 
 ### Components
 
+**TODO:**
+
 - `c:address`
 - `c:modal`
 
 **Note:** toolbox.css does not provide JS code, it's your job to include the JS
 to make the dynamic aspect of the components.
-
-### Layouts
-
-CSS grids are our tool of choice for the layouts. The framework include a few
-layouts to start, but feel free to make your owns. The CSS classes for layouts
-are prefixed by `l:`.
 
 
 ## How to use it

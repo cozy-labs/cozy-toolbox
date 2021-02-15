@@ -1,4 +1,6 @@
 defmodule Web.Models.Avatar do
+  @moduledoc false
+
   def build(seed) do
     params = compute_params(seed)
     filename = get_filename(params)
