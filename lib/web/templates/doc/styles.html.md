@@ -122,6 +122,8 @@ For margin and padding, we have a lot of possibilities
 | Cards | `e-card` | `e-card-elevated` | `e-card-inversed` | `e-card-notice` | |
 | Others | `e-fullbleed` | | | | |
 
+<button class="e-btn">Foo</button>
+
 *Notes:* it is common to have several utilities classes on the same tag, but
 for elements classes, one should be enough.
 
