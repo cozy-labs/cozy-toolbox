@@ -22,13 +22,13 @@ defmodule Web.OidcController do
 
   # https://openid.net/specs/openid-connect-core-1_0.html#TokenRequest
   def token(conn, _params) do
-    token = "alice-token"
+    token = "isabell-token"
     json(conn, %{access_token: token, token_type: "Bearer"})
   end
 
   # https://openid.net/specs/openid-connect-core-1_0.html#UserInfoRequest
   def userinfo(conn, _params) do
-    my_cloud_url = "alice.cozy.tools:8080"
+    my_cloud_url = "cozy.localhost:8080"
     json(conn, %{sub: 123, myCloudUrl: my_cloud_url})
   end
 end

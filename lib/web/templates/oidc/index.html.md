@@ -14,10 +14,10 @@ authentication:
       client_id: myBelenosClientID
       client_secret: myBelenosSecret
       scope: openid profile
-      redirect_uri: http://oauthcallback.cozy.tools:8080/oidc/redirect
-      authorize_url: http://cozy.tools:5000/oidc/cerfs/authorize
-      token_url: http://cozy.tools:5000/oidc/cerfs/token
-      userinfo_url: http://cozy.tools:5000/oidc/cerfs/userinfo
+      redirect_uri: http://oauthcallback.localhost:8080/oidc/redirect
+      authorize_url: http://localhost:5000/oidc/cerfs/authorize
+      token_url: http://localhost:5000/oidc/cerfs/token
+      userinfo_url: http://localhost:5000/oidc/cerfs/userinfo
       userinfo_instance_field: myCloudUrl
 ```
 
