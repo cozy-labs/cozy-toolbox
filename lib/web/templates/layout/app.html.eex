@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Cozy Toolbox</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
-    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/toolbox.css") %>"/>
   </head>
   <body class="view-<%= view(@conn) %>">
     <nav class="bar">
@@ -17,7 +16,7 @@
       <a href="/oidc"><%= img_tag(Routes.static_path(@conn, "/images/people.svg"), alt: "fake OIDC") %></a>
       <a href="/swift"><%= img_tag(Routes.static_path(@conn, "/images/folder.svg"), alt: "fake Swift") %></a>
     </nav>
-    <main role="main">
+    <main class="wrapper">
       <%= @inner_content %>
     </main>
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
