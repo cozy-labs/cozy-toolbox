@@ -24,9 +24,7 @@ authentication:
 ## TODO
 
 * Improve the look of the OIDC pages
-* Make it possible to have other backends and add the _faim_ backend
-* Allow to have several users per backend
-  * List the instances (`cozy-stack instances ls`) for the given context
+* Make it possible to have other backends
 * Add validation on parameters
   * Check mandatory parameters
   * Be more helpful on errors
