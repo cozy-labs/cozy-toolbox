@@ -19,18 +19,6 @@ defmodule Web.Router do
     live_dashboard "/dashboard", metrics: Web.Telemetry
   end
 
-  # Fake Swift server
-  scope "/", Web do
-    pipe_through :browser
-    get "/swift", Swift.ConfigController, :index
-  end
-
-  scope "/", Web do
-    pipe_through :api
-    post "/swift/v3/auth/tokens", Swift.IdentityController, :tokens
-    get "/swift/info", Swift.InfoController, :index
-  end
-
   # Fake OIDC server
   scope "/", Web do
     pipe_through :browser

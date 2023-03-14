@@ -14,7 +14,6 @@
       <a href="https://docs.cozy.io/en/cozy-stack/"><%= img_tag(Routes.static_path(@conn, "/images/stack.svg"), alt: "doc stack") %></a>
       <a href="/doc/styles"><%= img_tag(Routes.static_path(@conn, "/images/palette.svg"), alt: "doc CSS") %></a>
       <a href="/oidc"><%= img_tag(Routes.static_path(@conn, "/images/people.svg"), alt: "fake OIDC") %></a>
-      <a href="/swift"><%= img_tag(Routes.static_path(@conn, "/images/folder.svg"), alt: "fake Swift") %></a>
     </nav>
     <main class="wrapper">
       <%= @inner_content %>
