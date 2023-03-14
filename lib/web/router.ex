@@ -19,6 +19,20 @@ defmodule Web.Router do
     live_dashboard "/dashboard", metrics: Web.Telemetry
   end
 
+  # Fake FranceConnect server
+  scope "/", Web do
+    pipe_through :browser
+    get "/franceconnect", FranceConnectController, :index
+    get "/api/v1/authorize", FranceConnectController, :authorize
+    post "/api/v1/authorize", FranceConnectController, :authorized
+  end
+
+  scope "/", Web do
+    pipe_through :api
+    post "/api/v1/token", FranceConnectController, :token
+    get "/api/v1/userinfo", FranceConnectController, :userinfo
+  end
+
   # Fake OIDC server
   scope "/", Web do
     pipe_through :browser
