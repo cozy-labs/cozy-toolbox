@@ -8,14 +8,6 @@
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
   </head>
   <body class="view-<%= view(@conn) %>">
-    <nav class="bar">
-      <a href="/"><%= img_tag(Routes.static_path(@conn, "/images/wrench-circle.svg"), alt: "home") %></a>
-      <a href="https://github.com/cozy/cozy-stack/pulls"><%= img_tag(Routes.static_path(@conn, "/images/merge.svg"), alt: "PR stack") %></a>
-      <a href="https://docs.cozy.io/en/cozy-stack/"><%= img_tag(Routes.static_path(@conn, "/images/stack.svg"), alt: "doc stack") %></a>
-      <a href="/doc/styles"><%= img_tag(Routes.static_path(@conn, "/images/palette.svg"), alt: "doc CSS") %></a>
-      <a href="/franceconnect"><%= img_tag(Routes.static_path(@conn, "/images/folder.svg"), alt: "fake FranceConnect") %></a>
-      <a href="/oidc"><%= img_tag(Routes.static_path(@conn, "/images/people.svg"), alt: "fake OIDC") %></a>
-    </nav>
     <main class="wrapper">
       <%= @inner_content %>
     </main>

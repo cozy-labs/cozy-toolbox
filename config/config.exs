@@ -25,10 +25,6 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-config :phoenix, :template_engines, md: PhoenixMarkdown.Engine
-
-config :phoenix_markdown, :earmark, %{code_class_prefix: "language-"}
-
 config :tesla, :adapter, Tesla.Adapter.Mint
 
 # Import environment specific config. This must remain at the bottom

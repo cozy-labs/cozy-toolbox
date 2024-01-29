@@ -42,7 +42,6 @@ defmodule Toolbox.MixProject do
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
-      {:phoenix_markdown, "~> 1.0"},
       # More recent versions need elixir 1.10+
       {:earmark, "1.4.10"},
       {:castore, "~> 0.1"},
