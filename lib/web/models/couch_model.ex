@@ -40,6 +40,7 @@ defmodule Web.Models.Couch do
     Tesla.client([
       {Tesla.Middleware.BaseUrl, base_url},
       {Tesla.Middleware.Timeout, timeout: 10_000},
+      {Tesla.Middleware.BasicAuth, username: "admin", password: "password"},
       # Tesla.Middleware.Logger,
       Tesla.Middleware.JSON
     ])
