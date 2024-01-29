@@ -8,13 +8,13 @@ defmodule Web.InstanceController do
   def index(conn, _params) do
     couch = Couch.default()
     instances = Instance.list(couch)
-    render(conn, "index.html", %{instances: instances})
+    render(conn, :index, %{instances: instances})
   end
 
   def show(conn, %{"id" => id}) do
     couch = Couch.default()
     instance = Instance.get(couch, id)
     doctypes = Doctype.with_prefix(couch, instance.prefix)
-    render(conn, "show.html", %{instance: instance, doctypes: doctypes})
+    render(conn, :show, %{instance: instance, doctypes: doctypes})
   end
 end

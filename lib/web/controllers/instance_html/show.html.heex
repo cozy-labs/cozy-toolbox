@@ -1,10 +1,10 @@
-<%= img_tag(Routes.avatar_path(@conn, :show, @instance.domain)) %>
+<img src={~p"/avatars/#{@instance.domain}"}>
 
 <h1><%= @instance.domain %></h1>
 
 <ul>
   <%= for doctype <- @doctypes do %>
-    <li><a href="<%= doctype.fauxton %>">
+    <li><a href={doctype.fauxton}>
       <%= doctype.name %>
     </a></li>
   <% end %>

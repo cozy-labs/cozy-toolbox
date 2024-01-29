@@ -1,9 +1,12 @@
 defmodule Web.Router do
   use Web, :router
-  import Phoenix.LiveDashboard.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
+    plug :fetch_session
+    plug :put_root_layout, html: {Web.Layouts, :root}
+    plug :protect_from_forgery
+    plug :put_secure_browser_headers
   end
 
   pipeline :api do
@@ -15,6 +18,5 @@ defmodule Web.Router do
     get "/", PageController, :index
     get "/avatars/:seed", AvatarController, :show
     resources "/instances", InstanceController, only: [:index, :show]
-    live_dashboard "/dashboard", metrics: Web.Telemetry
   end
 end

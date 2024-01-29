@@ -19,15 +19,15 @@ defmodule Web.ConnCase do
 
   using do
     quote do
+      # The default endpoint for testing
+      @endpoint Web.Endpoint
+
+      use Web, :verified_routes
+
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
       import Web.ConnCase
-
-      alias Web.Router.Helpers, as: Routes
-
-      # The default endpoint for testing
-      @endpoint Web.Endpoint
     end
   end
 

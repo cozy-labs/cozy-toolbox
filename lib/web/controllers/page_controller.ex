@@ -7,6 +7,6 @@ defmodule Web.PageController do
   def index(conn, _params) do
     couch = Couch.default()
     instances = Instance.list(couch)
-    render(conn, "index.html", %{instances: instances})
+    render(conn, :index, %{instances: instances})
   end
 end

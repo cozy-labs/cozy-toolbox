@@ -5,17 +5,33 @@
 # is restricted to this project.
 
 # General application configuration
-use Mix.Config
+import Config
+
+config :toolbox,
+  generators: [timestamp_type: :utc_datetime]
 
 # Configures the endpoint
 config :toolbox, Web.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "W2c5erb5aWNhFth1SuiHY/H3mZ2/dPKw+kMbUwRpbiUS/KSwBJ8WSMvyuvojy6UW",
-  render_errors: [view: Web.ErrorView, accepts: ~w(html json), layout: false],
+  adapter: Bandit.PhoenixAdapter,
+  render_errors: [
+    formats: [html: Web.ErrorHTML, json: Web.ErrorJSON],
+    layout: false
+  ],
   pubsub_server: Toolbox.PubSub,
   live_view: [signing_salt: "SCwMbZzo"]
 
 config :toolbox, Web.Models.Avatar, cache_dir: :filename.basedir(:user_cache, "toolbox/avatars")
+
+# Configure esbuild (the version is required)
+config :esbuild,
+  version: "0.17.11",
+  default: [
+    args:
+      ~w(js/app.js --bundle --target=es2017 --outdir=../priv/static/assets --external:/fonts/* --external:/images/*),
+    cd: Path.expand("../assets", __DIR__),
+    env: %{"NODE_PATH" => Path.expand("../deps", __DIR__)}
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,
