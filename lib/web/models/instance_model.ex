@@ -6,8 +6,8 @@ defmodule Web.Models.Instance do
 
   defstruct [:id, :domain, :prefix, :name]
 
-  def list(couch) do
-    {:ok, %Tesla.Env{body: body}} = Couch.all_docs(couch, "global/instances")
+  def list(couch, options \\ []) do
+    {:ok, %Tesla.Env{body: body}} = Couch.all_docs(couch, "global/instances", options)
 
     body["rows"]
     |> Enum.reject(fn row -> Couch.design_doc?(row) end)
@@ -25,5 +25,12 @@ defmodule Web.Models.Instance do
       domain: params["domain"],
       prefix: params["prefix"]
     }
+  end
+
+  def get_prefix(instance) do
+    case instance.prefix do
+      nil -> String.replace(instance.domain, ".", "-")
+      prefix -> prefix
+    end
   end
 end

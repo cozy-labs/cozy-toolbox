@@ -1,11 +1,13 @@
 import Config
 
 db_url = System.get_env("TOOLBOX_DB_URL")
+
 if db_url do
   config :toolbox, Web.Endpoint, db_url: db_url
 end
 
 db_auth = System.get_env("TOOLBOX_DB_AUTH")
+
 if db_auth do
   config :toolbox, Web.Endpoint, db_auth: db_auth
 end
