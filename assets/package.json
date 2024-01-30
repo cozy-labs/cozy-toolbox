@@ -3,8 +3,8 @@
   "description": " ",
   "license": "MIT",
   "dependencies": {
-    "cozy-bootstrap": "1.9.0",
-    "prism-themes": "1.5.0",
-    "prismjs": "1.22.0"
+    "cozy-bootstrap": "1.15.0",
+    "prism-themes": "1.9.0",
+    "prismjs": "1.29.0"
   }
 }
