@@ -1,7 +1,8 @@
 <main class="wrapper">
-  <img src={"//#{@instance.domain}/public/avatar?fallback=initials"} class="illustration align-self-center mb-3">
-
-  <h1><%= @instance.domain %></h1>
+  <div class="hero-header">
+    <img src={"//#{@instance.domain}/public/avatar?fallback=initials"} class="hero-avatar mb-1">
+    <h1 class="hero-title"><%= @instance.domain %></h1>
+  </div>
 
   <ul>
     <%= for doctype <- @doctypes do %>

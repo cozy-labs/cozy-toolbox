@@ -21,50 +21,93 @@
   background-size: cover;
 }
 
+.hero-header {
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-avatar {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: #fff;
+}
+
+.hero-title {
+  font-size: 3rem;
+  letter-spacing: -0.05rem;
+}
+
 .home {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   color: white;
   background-color: transparent;
   height: 100%;
+  width: 50rem;
+  margin-inline: auto;
 }
 
-.view-page h1 {
-  text-align: center;
-  margin-bottom: 2rem;
+.home-divider {
+  margin: 0;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.24);
+  opacity: 1;
 }
 
-.view-page .tiles {
-  padding-bottom: 20rem;
+.home-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 8rem);
+  grid-auto-rows: minmax(7rem, auto);
+  grid-gap: 0.625rem 0;
+  justify-content: center;
+  margin-bottom: 20rem;
 }
 
-.tiles {
+.home-list a {
   display: flex;
-  flex-wrap: wrap;
-  list-style: none;
-}
-
-.tiles li {
-  position: relative;
-  margin: 1rem;
-}
-
-.tiles a,
-.tiles a:active,
-.tiles a:hover,
-.tiles a:focus,
-.tiles a:visited {
-  display: flex;
-  align-items: center;
   flex-direction: column;
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  text-shadow: 0 0 0.2rem black;
+  align-items: center;
+  justify-content: center;
 }
 
-.tiles img {
-  border-radius: 0.5rem;
+.home-list h6 {
+  display: -webkit-box;
+  height: 2.375rem;
+  margin: 0.5rem 0.25rem 0 0.25rem;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-align: center;
+  line-height: 1.188rem;
+  -moz-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: break-spaces;
+  text-shadow:
+    0px 2px 8px rgba(29, 33, 42, 0.16),
+    0px 0px 1px rgba(29, 33, 42, 0.48);
+}
+
+.square-icon {
+  width: 5rem;
+  height: 5rem;
+  padding: 0.625rem;
+  border-radius: 0.75rem;
+  background: #fff;
+  transition:
+    transform 0.3s,
+    border-radius 0.3s;
+}
+
+.scale-hover:hover {
+  transform: scale(1.0625);
+  transition: transform 50ms ease;
 }

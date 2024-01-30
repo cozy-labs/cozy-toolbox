@@ -1,14 +1,21 @@
 <div class="background"></div>
 
 <main class="home">
-  <h1>Instances</h1>
+  <div class="hero-header">
+    <img src="/images/icon.svg" class="hero-avatar mb-1">
+    <h1 class="hero-title">Instances</h1>
+  </div>
 
-  <ul>
+  <hr class="home-divider w-100 mb-6">
+
+  <div class="home-list w-100">
     <%= for instance <- @instances do %>
-      <li><a href={~p"/cozy/#{instance.id}"}>
-        <img src={"//#{instance.domain}/public/avatar?fallback=initials"}>
-        <%= instance.domain %>
-      </a></li>
+      <a href={~p"/cozy/#{instance.id}"} class="scale-hover">
+        <div class="square-icon">
+          <img src={"//#{instance.domain}/public/avatar?fallback=initials"}>
+        </div>
+        <h6><%= instance.domain %></h6>
+      </a>
     <% end %>
-  </ul>
+  </div>
 </main>
