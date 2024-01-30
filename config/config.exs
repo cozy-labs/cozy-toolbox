@@ -21,8 +21,6 @@ config :toolbox, Web.Endpoint,
   pubsub_server: Toolbox.PubSub,
   live_view: [signing_salt: "SCwMbZzo"]
 
-config :toolbox, Web.Models.Avatar, cache_dir: :filename.basedir(:user_cache, "toolbox/avatars")
-
 # Configure esbuild (the version is required)
 config :esbuild,
   version: "0.17.11",

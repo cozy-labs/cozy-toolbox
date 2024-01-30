@@ -4,7 +4,7 @@
   <%= for instance <- @instances do %>
     <li>
       <a href={~p"/instances/#{instance.id}"}>
-        <img src={~p"/avatars/#{instance.domain}"}>
+        <img src={"//#{instance.domain}/public/avatar?fallback=initials"}>
         <%= instance.domain %>
       </a>
     </li>

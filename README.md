@@ -40,10 +40,6 @@ Cozy is developed by Cozy Cloud and distributed under the AGPL v3 license.
 
 ## Credits
 
-The avatars are generated with artworks by [David
-Revoy](https://www.peppercarrot.com/), licensed as CC-by 4.0. See
-https://framagit.org/Deevad/cat-avatar-generator/tree/master for more details.
-
 The wallpaper for the home is a photo taken by Boris Renner, licensed as
 CC-by-sa 3.0. See
 https://commons.wikimedia.org/wiki/File:Lampovna_narodni_kulturni_pamatky_dolu_michal_2008.jpg

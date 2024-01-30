@@ -16,7 +16,6 @@ defmodule Web.Router do
   scope "/", Web do
     pipe_through :browser
     get "/", PageController, :index
-    get "/avatars/:seed", AvatarController, :show
     resources "/instances", InstanceController, only: [:index, :show]
   end
 end
