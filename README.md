@@ -32,6 +32,12 @@ and `TOOLBOX_DB_URL` env variables:
 $ TOOLBOX_DB_AUTH=user:p4ssw0rd TOOLBOX_DB_URL=http://couch:5984 iex -S mix phx.server
 ```
 
+It's also possible to create your own environment:
+
+```
+$ cp config/prod.exs config/my_prod.exs && $EDITOR config/my_prod.exs && MIX_ENV=my_prod iex -S mix phx.server
+```
+
 ## Community
 
 You can reach the Cozy Community by:

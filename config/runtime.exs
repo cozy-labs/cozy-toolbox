@@ -1,10 +1,14 @@
 import Config
 
-db_auth = System.get_env("TOOLBOX_DB_AUTH") || "admin:password"
-db_url = System.get_env("TOOLBOX_DB_URL") || "http://localhost:5984"
-config :toolbox, Web.Endpoint,
-  db_url: db_url,
-  db_auth: db_auth
+db_url = System.get_env("TOOLBOX_DB_URL")
+if db_url do
+  config :toolbox, Web.Endpoint, db_url: db_url
+end
+
+db_auth = System.get_env("TOOLBOX_DB_AUTH")
+if db_auth do
+  config :toolbox, Web.Endpoint, db_auth: db_auth
+end
 
 # config/runtime.exs is executed for all environments, including
 # during releases. It is executed after compilation and before the

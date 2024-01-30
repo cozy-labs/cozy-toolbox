@@ -1,8 +1,9 @@
 import Config
 
 config :toolbox, Web.Endpoint,
-  db_url: "http://localhost:5982",
-  db_auth: "admin:admin"
+  db_url: "http://localhost:5984",
+  db_auth: "admin:password"
+
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
