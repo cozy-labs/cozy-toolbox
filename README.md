@@ -25,6 +25,13 @@ To start your Phoenix server:
 
 Now you can visit [`localhost:5000`](http://localhost:5000) from your browser.
 
+If you need to configure the CouchDB to use, you can use the `TOOLBOX_DB_AUTH`
+and `TOOLBOX_DB_URL` env variables:
+
+```
+$ TOOLBOX_DB_AUTH=user:p4ssw0rd TOOLBOX_DB_URL=http://couch:5984 iex -S mix phx.server
+```
+
 ## Community
 
 You can reach the Cozy Community by:

@@ -5,7 +5,7 @@ defmodule Web.Models.Couch do
 
   defstruct [:url]
 
-  def default, do: %Couch{url: "http://localhost:5984"}
+  def default, do: %Couch{url: Web.Endpoint.config(:db_url)}
 
   def design_doc?(%{"id" => "_design/" <> _rest}), do: true
   def design_doc?(_row), do: false
@@ -37,10 +37,12 @@ defmodule Web.Models.Couch do
   end
 
   defp client(base_url) do
+    auth = Web.Endpoint.config(:db_auth)
+    [username, password] = String.split(auth, ":", parts: 2)
     Tesla.client([
       {Tesla.Middleware.BaseUrl, base_url},
       {Tesla.Middleware.Timeout, timeout: 10_000},
-      {Tesla.Middleware.BasicAuth, username: "admin", password: "password"},
+      {Tesla.Middleware.BasicAuth, username: username, password: password},
       # Tesla.Middleware.Logger,
       Tesla.Middleware.JSON
     ])
