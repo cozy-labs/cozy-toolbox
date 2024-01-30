@@ -1,9 +1,14 @@
-<h1>Instances</h1>
+<div class="background"></div>
 
-<ul>
-  <%= for instance <- @instances do %>
-    <li><a href={~p"/instances/#{instance.id}"}>
-      <%= instance.domain %>
-    </a></li>
-  <% end %>
-</ul>
+<main class="home">
+  <h1>Instances</h1>
+
+  <ul>
+    <%= for instance <- @instances do %>
+      <li><a href={~p"/cozy/#{instance.id}"}>
+        <img src={"//#{instance.domain}/public/avatar?fallback=initials"}>
+        <%= instance.domain %>
+      </a></li>
+    <% end %>
+  </ul>
+</main>

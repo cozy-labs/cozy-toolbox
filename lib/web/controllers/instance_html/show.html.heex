@@ -1,11 +1,13 @@
-<img src={"//#{@instance.domain}/public/avatar?fallback=initials"}>
+<main class="wrapper">
+  <img src={"//#{@instance.domain}/public/avatar?fallback=initials"} class="illustration align-self-center mb-3">
 
-<h1><%= @instance.domain %></h1>
+  <h1><%= @instance.domain %></h1>
 
-<ul>
-  <%= for doctype <- @doctypes do %>
-    <li><a href={doctype.fauxton}>
-      <%= doctype.name %>
-    </a></li>
-  <% end %>
-</ul>
+  <ul>
+    <%= for doctype <- @doctypes do %>
+      <li><a href={doctype.fauxton}>
+        <%= doctype.name %>
+      </a></li>
+    <% end %>
+  </ul>
+</main>

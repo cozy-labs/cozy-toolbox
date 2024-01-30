@@ -12,36 +12,17 @@
   src: url("/fonts/Lato-Bold.woff2") format("woff2");
 }
 
-.bar {
+.background {
   position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  width: 4rem;
-  backdrop-filter: blur(4rem);
-  display: flex;
-  flex-direction: column;
-}
-
-.bar a {
-  display: block;
-  width: 3rem;
-  height: 3rem;
-  margin: 0.5rem;
-  padding: 0.2rem;
-  background-color: white;
-  border-radius: 0.4rem;
-  box-shadow: 0 0.25rem 0.75rem 0 rgba(0, 0, 0, 0.2);
-}
-
-.view-page {
   width: 100vw;
   height: 100vh;
   background-image: url("/images/Lampovna.jpg");
+  background-position: center;
   background-size: cover;
 }
 
-.view-page main {
+.home {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -86,10 +67,4 @@
 
 .tiles img {
   border-radius: 0.5rem;
-}
-
-.view-doc table {
-  margin-left: clamp(-20%, 50% - 50vw, 0px);
-  margin-right: clamp(-20%, 50% - 50vw, 0px);
-  width: min(100vw, 140%);
 }
