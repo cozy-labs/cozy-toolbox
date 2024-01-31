@@ -27,6 +27,16 @@ defmodule Web.Models.Couch do
     |> Tesla.get("/#{URI.encode_www_form(db)}/#{id}")
   end
 
+  def find(%Couch{url: url}, db, request) do
+    client(url)
+    |> Tesla.post("/#{URI.encode_www_form(db)}/_find", request)
+  end
+
+  def exec_view(%Couch{url: url}, db, view_name, query \\ []) do
+    client(url)
+    |> Tesla.get("/#{URI.encode_www_form(db)}/_design/#{view_name}/_view/#{view_name}", query: query)
+  end
+
   def all_databases(%Couch{url: url}, options \\ []) do
     limit = Keyword.get(options, :limit, 1000)
     prefix = Keyword.get(options, :prefix)

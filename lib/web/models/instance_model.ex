@@ -14,6 +14,18 @@ defmodule Web.Models.Instance do
     |> Enum.map(fn row -> Instance.from_params(row["doc"]) end)
   end
 
+  def search(couch, q, options \\ []) do
+    request = options
+              |> Keyword.put(:include_docs, true)
+              |> Keyword.put(:startkey, "\"#{q}\"")
+              |> Keyword.put(:endkey, "\"#{q}\uFFFF\"")
+
+    {:ok, %Tesla.Env{body: body}} = Couch.exec_view(couch, "global/instances", "domain-and-aliases", request)
+
+    body["rows"]
+    |> Enum.map(fn row -> Instance.from_params(row["doc"]) end)
+  end
+
   def get(couch, id) do
     {:ok, %Tesla.Env{body: body}} = Couch.get_doc(couch, "global/instances", id)
     Instance.from_params(body)

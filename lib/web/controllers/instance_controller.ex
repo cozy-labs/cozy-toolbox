@@ -6,9 +6,7 @@ defmodule Web.InstanceController do
   alias Web.Models.Instance
 
   def index(conn, _params) do
-    couch = Couch.default()
-    instances = Instance.list(couch, limit: 30)
-    render(conn, :index, %{instances: instances})
+    live_render(conn, Web.HomeLive)
   end
 
   def show(conn, %{"id" => id}) do

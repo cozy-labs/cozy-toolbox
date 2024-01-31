@@ -3,7 +3,10 @@
 <main class="home">
   <.hero avatar="/images/icon.svg" title="Instances" />
 
-  <hr class="home-divider w-100 mb-6">
+  <form phx-submit="submit" class="home-search mb-6">
+    <img src="/images/icon-magnifier.svg" />
+    <input type="text" name="q" placeholder="Search" phx-change="search" autofocus="true" />
+  </form>
 
   <div class="home-list w-100">
     <a :for={instance <- @instances} href={~p"/cozy/#{instance.id}"} class="scale-hover">

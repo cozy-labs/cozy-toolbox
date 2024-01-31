@@ -43,6 +43,7 @@ defmodule Web do
         layouts: [html: Web.Layouts]
 
       import Plug.Conn
+      import Phoenix.LiveView.Controller
 
       unquote(verified_routes())
     end
