@@ -19,6 +19,42 @@ defmodule Web.CoreComponents do
   alias Phoenix.LiveView.JS
 
   @doc """
+  Renders a hero header.
+
+  ## Examples
+
+      <.hero avatar="/images/icon.svg" title="Instances" />
+  """
+
+  attr :avatar, :string, required: true
+  attr :title, :string, required: true
+
+  def hero(assigns) do
+    ~H"""
+    <div class="hero-header">
+      <img src={@avatar} class="hero-avatar mb-1">
+      <h1 class="hero-title"><%= @title %></h1>
+    </div>
+    """
+  end
+
+  @doc """
+  Renders a square icon.
+
+  ## Examples
+
+      <.square_icon src="/images/icon.svg" />
+  """
+
+  attr :src, :string, required: true
+
+  def square_icon(assigns) do
+    ~H"""
+    <div class="square-icon"><img src={@src}></div>
+    """
+  end
+
+  @doc """
   Renders a modal.
 
   ## Examples

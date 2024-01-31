@@ -1,14 +1,9 @@
 <main class="wrapper">
-  <div class="hero-header">
-    <img src={"//#{@instance.domain}/public/avatar?fallback=initials"} class="hero-avatar mb-1">
-    <h1 class="hero-title"><%= @instance.domain %></h1>
-  </div>
+  <.hero avatar={"//#{@instance.domain}/public/avatar?fallback=initials"} title={@instance.domain} />
 
   <ul>
-    <%= for doctype <- @doctypes do %>
-      <li><a href={doctype.fauxton}>
-        <%= doctype.name %>
-      </a></li>
-    <% end %>
+    <li :for={doctype <- @doctypes}><a href={doctype.fauxton}>
+      <%= doctype.name %>
+    </a></li>
   </ul>
 </main>
