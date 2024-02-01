@@ -4,7 +4,7 @@ defmodule Web.Models.Instance do
   alias Web.Models.Couch
   alias Web.Models.Instance
 
-  defstruct [:id, :domain, :prefix, :name]
+  defstruct [:id, :domain, :prefix, :raw_doc]
 
   def list(options \\ []) do
     {:ok, %Tesla.Env{body: body}} = Couch.all_docs("global/instances", options)
@@ -37,7 +37,8 @@ defmodule Web.Models.Instance do
     %Instance{
       id: params["_id"],
       domain: params["domain"],
-      prefix: params["prefix"]
+      prefix: params["prefix"],
+      raw_doc: Jason.encode!(params)
     }
   end
 

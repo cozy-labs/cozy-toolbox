@@ -12,6 +12,7 @@
   src: url("/fonts/Lato-Bold.woff2") format("woff2");
 }
 
+/* Generic */
 .background {
   position: fixed;
   width: 100vw;
@@ -20,14 +21,28 @@
   background-position: center;
   background-size: cover;
 }
+.square-icon {
+  width: 5rem;
+  height: 5rem;
+  padding: 0.625rem;
+  border-radius: 0.75rem;
+  background: #fff;
+  transition:
+    transform 0.3s,
+    border-radius 0.3s;
+}
+.scale-hover:hover {
+  transform: scale(1.0625);
+  transition: transform 50ms ease;
+}
 
+/* Hero */
 .hero-header {
   padding: 3rem 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .hero-avatar {
   width: 10rem;
   height: 10rem;
@@ -35,12 +50,34 @@
   border: 2px solid #fff;
   background: #fff;
 }
-
 .hero-title {
   font-size: 3rem;
   letter-spacing: -0.05rem;
 }
 
+/* List item */
+.listitem {
+  list-style: none;
+  height: 3.5rem;
+  border-bottom: 1px solid var(--dividerColor);
+}
+.listitem a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0.75rem 1rem;
+  gap: 1rem;
+  color: #000;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+}
+.listitem a:hover {
+  text-decoration: none;
+  background-color: rgba(29, 33, 42, 0.04);
+}
+
+/* Home */
 .home {
   position: relative;
   display: flex;
@@ -53,7 +90,6 @@
   width: 50rem;
   margin-inline: auto;
 }
-
 .home-search {
   width: 46rem;
   height: 3rem;
@@ -65,29 +101,24 @@
   justify-content: center;
   border: 1px solid transparent;
 }
-
 .home-search:focus-within {
   border-color: var(--primaryColor);
   box-shadow: 0 0 0 0.25rem var(--primaryColorLightest);
 }
-
 .home-search img {
   width: 1rem;
   height: 1rem;
   margin-inline: 1rem;
 }
-
 .home-search input {
   flex-grow: 1;
   margin-right: 1rem;
   border: none;
 }
-
 .home-search input:focus {
   border: none;
   outline: none;
 }
-
 .home-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, 8rem);
@@ -96,14 +127,12 @@
   justify-content: center;
   margin-bottom: 20rem;
 }
-
 .home-list a {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-
 .home-list h6 {
   display: -webkit-box;
   height: 2.375rem;
@@ -123,18 +152,121 @@
     0px 0px 1px rgba(29, 33, 42, 0.48);
 }
 
-.square-icon {
-  width: 5rem;
-  height: 5rem;
-  padding: 0.625rem;
-  border-radius: 0.75rem;
-  background: #fff;
-  transition:
-    transform 0.3s,
-    border-radius 0.3s;
+/* Other pages */
+.bar {
+  width: 4rem;
+  height: 100vh;
+  border-right: 1px solid var(--dividerColor);
+}
+.sidebar {
+  min-width: 20rem;
+  height: 100vh;
+  border-right: 1px solid var(--dividerColor);
+}
+.subheader {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem 1rem;
+  line-height: 1rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgba(29, 33, 42, 0.64);
+  background-color: rgba(29, 33, 42, 0.05);
 }
 
-.scale-hover:hover {
-  transform: scale(1.0625);
-  transition: transform 50ms ease;
+/* Doctypes */
+.doctype {
+  background-color: rgba(29, 33, 42, 0.72);
+  mask-position: center;
+  mask-size: 1rem;
+  mask-repeat: no-repeat;
+}
+.doctype {
+  mask-image: url("/images/doctypes/fallback.svg");
+}
+.doctype[class^="\* "] {
+  mask-image: url("/images/doctypes/cozy-smile.svg");
+}
+.doctype[class^="com-bitwarden-ciphers"],
+.doctype[class^="com-bitwarden-folders"],
+.doctype[class^="com-bitwarden-profiles"],
+.doctype[class^="io-cozy-permissions"] {
+  mask-image: url("/images/doctypes/lock.svg");
+}
+.doctype[class^="com-bitwarden-organizations"] {
+  mask-image: url("/images/doctypes/organization.svg");
+}
+.doctype[class^="io-cozy-settings"],
+.doctype[class^="io-cozy-bank-settings"] {
+  mask-image: url("/images/doctypes/cog.svg");
+}
+.doctype[class^="io-cozy-coachco2-settings"] {
+  mask-image: url("/images/doctypes/cog.svg");
+}
+.doctype[class^="io-cozy-tags"] {
+  mask-image: url("/images/doctypes/tags.svg");
+}
+.doctype[class^="io-cozy-accounts"],
+.doctype[class^="io-cozy-accounts-stats"] {
+  mask-image: url("/images/doctypes/shield.svg");
+}
+.doctype[class^="io-cozy-apps"],
+.doctype[class^="io-cozy-apps-suggestions"] {
+  mask-image: url("/images/doctypes/grid.svg");
+}
+.doctype[class^="io-cozy-bank-accounts"] {
+  mask-image: url("/images/doctypes/wallet.svg");
+}
+.doctype[class^="io-cozy-bank-groups"] {
+  mask-image: url("/images/doctypes/banking.svg");
+}
+.doctype[class^="io-cozy-bank-operations"] {
+  mask-image: url("/images/doctypes/euro.svg");
+}
+.doctype[class^="io-cozy-contacts"],
+.doctype[class^="io-cozy-identities"],
+.doctype[class^="io-cozy-bank-recipients"] {
+  mask-image: url("/images/doctypes/profile.svg");
+}
+.doctype[class^="io-cozy-contacts-groups"] {
+  mask-image: url("/images/doctypes/team.svg");
+}
+.doctype[class^="io-cozy-bank-recurrence"] {
+  mask-image: url("/images/doctypes/timer.svg");
+}
+.doctype[class^="io-cozy-bills"] {
+  mask-image: url("/images/doctypes/bill.svg");
+}
+.doctype[class^="io-cozy-files"] {
+  mask-image: url("/images/doctypes/file.svg");
+}
+.doctype[class^="io-cozy-files-versions"] {
+  mask-image: url("/images/doctypes/history.svg");
+}
+.doctype[class^="io-cozy-home-settings"] {
+  mask-image: url("/images/doctypes/cog.svg");
+}
+.doctype[class^="io-cozy-konnectors"] {
+  mask-image: url("/images/doctypes/sync-cozy.svg");
+}
+.doctype[class^="io-cozy-notifications"] {
+  mask-image: url("/images/doctypes/bell.svg");
+}
+.doctype[class^="io-cozy-photos-albums"] {
+  mask-image: url("/images/doctypes/picture.svg");
+}
+.doctype[class^="io-cozy-timeseries-geojson"] {
+  mask-image: url("/images/doctypes/location.svg");
+}
+.doctype[class^="io-cozy-jobs"] {
+  mask-image: url("/images/doctypes/email.svg");
+}
+.doctype[class^="io-cozy-triggers"] {
+  mask-image: url("/images/doctypes/clock.svg");
+}
+.doctype[class^="io-cozy-sharings"] {
+  mask-image: url("/images/doctypes/share.svg");
+}
+.doctype[class^="io-cozy-oauth-clients"] {
+  mask-image: url("/images/doctypes/devices.svg");
 }

@@ -18,12 +18,16 @@
 // Include phoenix_html to handle method=PUT/DELETE in forms and buttons.
 import "phoenix_html"
 // Establish Phoenix Socket and LiveView configuration.
-import {Socket} from "phoenix"
-import {LiveSocket} from "phoenix_live_view"
+import { Socket } from "phoenix"
+import { LiveSocket } from "phoenix_live_view"
 // import topbar from "../vendor/topbar"
 
-let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
-let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
+let csrfToken = document
+  .querySelector("meta[name='csrf-token']")
+  .getAttribute("content")
+let liveSocket = new LiveSocket("/live", Socket, {
+  params: { _csrf_token: csrfToken },
+})
 
 // Show progress bar on live navigation and form submits
 // topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
@@ -44,5 +48,5 @@ import "../css/app.css"
 
 // Prism is used for syntax highlighting of <code>
 import Prism from "prismjs"
-import "prism-themes/themes/prism-nord.css"
+import "prism-themes/themes/prism-one-light.css"
 Prism.highlightAll()
