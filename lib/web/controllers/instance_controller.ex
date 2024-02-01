@@ -10,10 +10,9 @@ defmodule Web.InstanceController do
   end
 
   def show(conn, %{"id" => id}) do
-    couch = Couch.default()
-    instance = Instance.get(couch, id)
+    instance = Instance.get(id)
     prefix = Instance.get_prefix(instance)
-    doctypes = Doctype.with_prefix(couch, prefix)
+    doctypes = Doctype.with_prefix(prefix)
     render(conn, :show, %{instance: instance, doctypes: doctypes})
   end
 end

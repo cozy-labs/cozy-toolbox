@@ -6,28 +6,30 @@ defmodule Web.Models.Instance do
 
   defstruct [:id, :domain, :prefix, :name]
 
-  def list(couch, options \\ []) do
-    {:ok, %Tesla.Env{body: body}} = Couch.all_docs(couch, "global/instances", options)
+  def list(options \\ []) do
+    {:ok, %Tesla.Env{body: body}} = Couch.all_docs("global/instances", options)
 
     body["rows"]
     |> Enum.reject(fn row -> Couch.design_doc?(row) end)
     |> Enum.map(fn row -> Instance.from_params(row["doc"]) end)
   end
 
-  def search(couch, q, options \\ []) do
-    request = options
-              |> Keyword.put(:include_docs, true)
-              |> Keyword.put(:startkey, "\"#{q}\"")
-              |> Keyword.put(:endkey, "\"#{q}\uFFFF\"")
+  def search(q, options \\ []) do
+    request =
+      options
+      |> Keyword.put(:include_docs, true)
+      |> Keyword.put(:startkey, "\"#{q}\"")
+      |> Keyword.put(:endkey, "\"#{q}\uFFFF\"")
 
-    {:ok, %Tesla.Env{body: body}} = Couch.exec_view(couch, "global/instances", "domain-and-aliases", request)
+    {:ok, %Tesla.Env{body: body}} =
+      Couch.exec_view("global/instances", "domain-and-aliases", request)
 
     body["rows"]
     |> Enum.map(fn row -> Instance.from_params(row["doc"]) end)
   end
 
-  def get(couch, id) do
-    {:ok, %Tesla.Env{body: body}} = Couch.get_doc(couch, "global/instances", id)
+  def get(id) do
+    {:ok, %Tesla.Env{body: body}} = Couch.get_doc("global/instances", id)
     Instance.from_params(body)
   end
 

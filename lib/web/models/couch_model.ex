@@ -5,12 +5,10 @@ defmodule Web.Models.Couch do
 
   defstruct [:url]
 
-  def default, do: %Couch{url: Web.Endpoint.config(:db_url)}
-
   def design_doc?(%{"id" => "_design/" <> _rest}), do: true
   def design_doc?(_row), do: false
 
-  def all_docs(%Couch{url: url}, db, options \\ []) do
+  def all_docs(db, options \\ []) do
     limit = Keyword.get(options, :limit, 1000)
 
     query =
@@ -18,26 +16,28 @@ defmodule Web.Models.Couch do
       |> Keyword.put(:include_docs, true)
       |> Keyword.put(:limit, limit)
 
-    client(url)
+    client()
     |> Tesla.get("/#{URI.encode_www_form(db)}/_all_docs", query: query)
   end
 
-  def get_doc(%Couch{url: url}, db, id) do
-    client(url)
+  def get_doc(db, id) do
+    client()
     |> Tesla.get("/#{URI.encode_www_form(db)}/#{id}")
   end
 
-  def find(%Couch{url: url}, db, request) do
-    client(url)
+  def find(db, request) do
+    client()
     |> Tesla.post("/#{URI.encode_www_form(db)}/_find", request)
   end
 
-  def exec_view(%Couch{url: url}, db, view_name, query \\ []) do
-    client(url)
-    |> Tesla.get("/#{URI.encode_www_form(db)}/_design/#{view_name}/_view/#{view_name}", query: query)
+  def exec_view(db, view_name, query \\ []) do
+    client()
+    |> Tesla.get("/#{URI.encode_www_form(db)}/_design/#{view_name}/_view/#{view_name}",
+      query: query
+    )
   end
 
-  def all_databases(%Couch{url: url}, options \\ []) do
+  def all_databases(options \\ []) do
     limit = Keyword.get(options, :limit, 1000)
     prefix = Keyword.get(options, :prefix)
 
@@ -56,11 +56,17 @@ defmodule Web.Models.Couch do
 
     path = "/_all_dbs"
 
-    client(url)
+    client()
     |> Tesla.get(path, query: query)
   end
 
-  defp client(base_url) do
+  def fauxton_url(db) do
+    base_url = Web.Endpoint.config(:db_url)
+    "#{base_url}/_utils/#/database/#{URI.encode_www_form(db)}/_all_docs"
+  end
+
+  defp client() do
+    base_url = Web.Endpoint.config(:db_url)
     auth = Web.Endpoint.config(:db_auth)
     [username, password] = String.split(auth, ":", parts: 2)
 

@@ -2,7 +2,7 @@
   <.hero avatar={"//#{@instance.domain}/public/avatar?fallback=initials"} title={@instance.domain} />
 
   <ul>
-    <li :for={doctype <- @doctypes}><a href={doctype.fauxton}>
+    <li :for={doctype <- @doctypes}><a href={Couch.fauxton_url(doctype.db)}>
       <%= doctype.name %>
     </a></li>
   </ul>
