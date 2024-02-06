@@ -1,7 +1,6 @@
 defmodule Web.HomeLive do
   use Web, :live_view
 
-  alias Web.Models.Couch
   alias Web.Models.Instance
 
   @impl true

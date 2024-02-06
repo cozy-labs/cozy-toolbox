@@ -1,8 +1,6 @@
 defmodule Web.Models.Couch do
   @moduledoc false
 
-  alias Web.Models.Couch
-
   defstruct [:url]
 
   def design_doc?(%{"id" => "_design/" <> _rest}), do: true

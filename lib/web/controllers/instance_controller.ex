@@ -1,7 +1,6 @@
 defmodule Web.InstanceController do
   use Web, :controller
 
-  alias Web.Models.Couch
   alias Web.Models.Doctype
   alias Web.Models.Instance
 
