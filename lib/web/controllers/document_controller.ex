@@ -14,8 +14,12 @@ defmodule Web.DocumentController do
     render(conn, :index, %{instance: instance, doctypes: doctypes, doctype: doctype, docs: docs})
   end
 
-  def show(conn, %{"cozy" => cozy, "doctype" => doctype, "docid" => docid}) do
-    # TODO
+  def show(conn, %{"cozy" => cozy, "doctype" => doctypename, "docid" => docid}) do
+    instance = Instance.get(cozy)
+    prefix = Instance.get_prefix(instance)
+    doctypes = Doctype.with_prefix(prefix)
+    doctype = Enum.find(doctypes, fn d -> d.name == doctypename end)
+    doc = Document.get(doctype, docid)
+    render(conn, :show, %{instance: instance, doctypes: doctypes, doctype: doctype, doc: doc})
   end
 end
-

@@ -14,6 +14,11 @@ defmodule Web.Models.Document do
     |> Enum.map(fn row -> Document.from_params(row["doc"]) end)
   end
 
+  def get(doctype, id) do
+    {:ok, %Tesla.Env{body: body}} = Couch.get_doc(doctype.db, id)
+    Document.from_params(body)
+  end
+
   def from_params(params) do
     %Document{
       id: params["_id"],

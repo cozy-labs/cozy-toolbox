@@ -63,6 +63,11 @@ defmodule Web.Models.Couch do
     "#{base_url}/_utils/#/database/#{URI.encode_www_form(db)}/_all_docs"
   end
 
+  def fauxton_url(db, docid) do
+    base_url = Web.Endpoint.config(:db_url)
+    "#{base_url}/_utils/#/database/#{URI.encode_www_form(db)}/#{docid}"
+  end
+
   defp client() do
     base_url = Web.Endpoint.config(:db_url)
     auth = Web.Endpoint.config(:db_auth)

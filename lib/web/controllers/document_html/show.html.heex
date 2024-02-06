@@ -1,0 +1,13 @@
+<main class="d-flex">
+  <.bar />
+
+  <.sidebar instance={@instance} doctypes={@doctypes} current={@doctype.name} />
+
+  <div class="d-flex flex-column align-items-center flex-grow-1 flex-shrink-1">
+    TODO
+    <a href={Couch.fauxton_url(@doctype.db, @doc.id)}>Fauxton</a>
+    <pre class="m-auto"><code class="language-js">
+      <%= Jason.Formatter.pretty_print(@doc.raw_doc) %>
+    </code></pre>
+  </div>
+</main>
