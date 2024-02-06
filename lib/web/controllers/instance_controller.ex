@@ -8,8 +8,8 @@ defmodule Web.InstanceController do
     live_render(conn, Web.HomeLive)
   end
 
-  def show(conn, %{"id" => id}) do
-    instance = Instance.get(id)
+  def show(conn, %{"cozy" => cozy}) do
+    instance = Instance.get(cozy)
     prefix = Instance.get_prefix(instance)
     doctypes = Doctype.with_prefix(prefix)
     render(conn, :show, %{instance: instance, doctypes: doctypes})

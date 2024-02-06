@@ -1,0 +1,19 @@
+<main class="d-flex">
+  <.bar />
+
+  <.sidebar instance={@instance} doctypes={@doctypes} current={@doctype.name} />
+
+  <div class="d-flex flex-column align-items-center flex-grow-1 flex-shrink-1">
+    TODO
+    <a href={Couch.fauxton_url(@doctype.db)}>Fauxton</a>
+    <table>
+      <tr :for={doc <- @docs}>
+        <td><a href={~p"/cozy/#{@instance.id}/#{@doctype.name}/#{doc.id}"}>
+          <%= doc.id %>
+        </a></td>
+        <td><%= doc.rev %></td>
+        <td><%= doc.raw_doc %></td>
+      </tr>
+    </table>
+  </div>
+</main>

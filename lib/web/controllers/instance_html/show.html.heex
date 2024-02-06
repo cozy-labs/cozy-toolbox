@@ -1,20 +1,7 @@
 <main class="d-flex">
-  <div class="bar">
-    <a href={~p"/"}>
-      <img src="/images/icon.svg" class="m-3" />
-    </a>
-  </div>
+  <.bar />
 
-  <div class="sidebar">
-    <h6 class="subheader">Doctypes</h6>
-    <ul class="p-0">
-      <li :for={doctype <- @doctypes} class="listitem"><a href={Couch.fauxton_url(doctype.db)}>
-        <div class={"#{String.replace(doctype.name, ".", "-")} icon doctype"}></div>
-        <div class="flex-grow-1"><%= doctype.name %></div>
-        <img src="/images/icon-arrow-mini-right.svg" />
-      </a></li>
-    </ul>
-  </div>
+  <.sidebar instance={@instance} doctypes={@doctypes} />
 
   <div class="d-flex flex-column align-items-center flex-grow-1 flex-shrink-1">
     <.hero avatar={"//#{@instance.domain}/public/avatar?fallback=initials"} title={@instance.domain} />

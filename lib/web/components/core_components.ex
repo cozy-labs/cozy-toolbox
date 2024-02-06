@@ -16,6 +16,8 @@ defmodule Web.CoreComponents do
   """
   use Phoenix.Component
 
+  use Phoenix.VerifiedRoutes, router: Web.Router, endpoint: Web.Endpoint
+
   alias Phoenix.LiveView.JS
 
   @doc """
@@ -51,6 +53,53 @@ defmodule Web.CoreComponents do
   def square_icon(assigns) do
     ~H"""
     <div class="square-icon"><img src={@src}></div>
+    """
+  end
+
+  @doc """
+  Renders the bar on the left.
+
+  ## Examples
+
+      <.bar />
+  """
+
+  def bar(assigns) do
+    ~H"""
+    <div class="bar">
+      <a href="/">
+        <img src="/images/icon.svg" class="m-3" />
+      </a>
+    </div>
+    """
+  end
+
+  @doc """
+  Renders the sidebar with the list of doctypes.
+
+  ## Examples
+
+      <.sidebar instance={@instance} doctypes={@doctypes} current={"io.cozy.files"} />
+  """
+
+  attr :instance, :any, required: true
+  attr :doctypes, :any, required: true
+  attr :current, :string, default: nil
+
+  def sidebar(assigns) do
+    ~H"""
+    <div class="sidebar">
+      <h6 class="subheader">Doctypes</h6>
+      <ul class="p-0">
+        <li :for={d <- @doctypes} class={"listitem #{if d.name == @current, do: "active"}"}>
+          <a href={~p"/cozy/#{@instance.id}/#{d.name}"}>
+            <div class={"#{String.replace(d.name, ".", "-")} icon doctype"}></div>
+            <div class="flex-grow-1"><%= d.name %></div>
+            <img src="/images/icon-arrow-mini-right.svg" />
+          </a>
+        </li>
+      </ul>
+    </div>
     """
   end
 

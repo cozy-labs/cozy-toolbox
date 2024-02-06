@@ -16,6 +16,8 @@ defmodule Web.Router do
   scope "/", Web do
     pipe_through :browser
     get "/", InstanceController, :index
-    get "/cozy/:id", InstanceController, :show
+    get "/cozy/:cozy", InstanceController, :show
+    get "/cozy/:cozy/:doctype", DocumentController, :index
+    get "/cozy/:cozy/:doctype/:docid", DocumentController, :show
   end
 end
