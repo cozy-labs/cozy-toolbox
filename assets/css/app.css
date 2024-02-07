@@ -56,7 +56,6 @@ pre {
   height: 2rem;
   background: #fff;
   border: 1px solid rgba(29, 33, 42, 0.16);
-  border-radius: 2px;
 }
 .toggle:hover {
   background: rgba(29, 33, 42, 0.08);
@@ -64,8 +63,34 @@ pre {
 .toggled {
   background: rgba(29, 33, 42, 0.16);
 }
+.toggle .icon {
+  background: rgba(29, 33, 42, 0.48);
+}
+.toggled .icon {
+  background: rgba(29, 33, 42, 0.72);
+}
+.filters .toggle:first-child {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+.filters .toggle:last-child {
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.filters .toggle + .toggle {
+  border-top: 0;
+}
 
 /* Icons */
+.icon-file {
+  mask-image: url(/images/icon-file.svg);
+}
+.icon-open {
+  mask-image: url(/images/icon-open.svg);
+}
+.icon-setting {
+  mask-image: url(/images/icon-setting.svg);
+}
 .icon-timer {
   mask-image: url(/images/icon-timer.svg);
 }

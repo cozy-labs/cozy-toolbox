@@ -17,7 +17,7 @@ defmodule Web.Router do
     pipe_through :browser
     live "/", HomeLive
     live "/cozy/:cozy", ShowInstance
-    get "/cozy/:cozy/:doctype", DocumentController, :index
+    live "/cozy/:cozy/:doctype", ShowDoctype
     live "/cozy/:cozy/:doctype/:docid", ShowDoc
   end
 end

@@ -14,6 +14,20 @@ defmodule Web.Models.Document do
     |> Enum.map(fn row -> Document.from_params(row["doc"]) end)
   end
 
+  def design_docs(doctype, options \\ []) do
+    {:ok, %Tesla.Env{body: body}} = Couch.design_docs(doctype.db, options)
+
+    body["rows"]
+    |> Enum.map(fn row -> Document.from_params(row["doc"]) end)
+  end
+
+  def local_docs(doctype, options \\ []) do
+    {:ok, %Tesla.Env{body: body}} = Couch.local_docs(doctype.db, options)
+
+    body["rows"]
+    |> Enum.map(fn row -> Document.from_params(row["doc"]) end)
+  end
+
   def get(doctype, id, options \\ []) do
     {:ok, %Tesla.Env{body: body}} = Couch.get_doc(doctype.db, id, options)
     Document.from_params(body)

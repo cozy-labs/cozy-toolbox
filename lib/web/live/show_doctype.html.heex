@@ -1,11 +1,20 @@
 <main class="d-flex">
   <.bar fauxton={Couch.fauxton_url(@doctype.db)}>
-    &nbsp;
+    <button phx-click="normal_docs" class={"toggle #{if @kind == "normal_docs", do: "toggled"}"} title="normal_docs">
+      <span class="icon icon-file"></span>
+    </button>
+    <button phx-click="design_docs" class={"toggle #{if @kind == "design_docs", do: "toggled"}"} title="design_docs">
+      <span class="icon icon-setting"></span>
+    </button>
+    <button phx-click="local_docs" class={"toggle #{if @kind == "local_docs", do: "toggled"}"} title="local_docs">
+      <span class="icon icon-open"></span>
+    </button>
   </.bar>
 
   <.sidebar instance={@instance} doctypes={@doctypes} current={@doctype.name} />
 
   <div class="content p-3">
+    <h2><%= @kind %></h2>
     <%= if Enum.any? @docs do %>
       <table class="table table-hover">
         <thead>

@@ -1,7 +1,6 @@
 defmodule Web.ShowInstance do
   use Web, :live_view
 
-  alias Web.Models.Couch
   alias Web.Models.Doctype
   alias Web.Models.Instance
 

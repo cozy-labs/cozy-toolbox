@@ -18,6 +18,30 @@ defmodule Web.Models.Couch do
     |> Tesla.get("/#{URI.encode_www_form(db)}/_all_docs", query: query)
   end
 
+  def design_docs(db, options \\ []) do
+    limit = Keyword.get(options, :limit, 1000)
+
+    query =
+      []
+      |> Keyword.put(:include_docs, true)
+      |> Keyword.put(:limit, limit)
+
+    client()
+    |> Tesla.get("/#{URI.encode_www_form(db)}/_design_docs", query: query)
+  end
+
+  def local_docs(db, options \\ []) do
+    limit = Keyword.get(options, :limit, 1000)
+
+    query =
+      []
+      |> Keyword.put(:include_docs, true)
+      |> Keyword.put(:limit, limit)
+
+    client()
+    |> Tesla.get("/#{URI.encode_www_form(db)}/_local_docs", query: query)
+  end
+
   def get_doc(db, id, query \\ []) do
     client()
     |> Tesla.get("/#{URI.encode_www_form(db)}/#{URI.encode_www_form(id)}", query: query)

@@ -93,7 +93,7 @@ defmodule Web.CoreComponents do
       <a href="/">
         <img src="/images/icon.svg" class="m-3" />
       </a>
-      <div>
+      <div class="filters">
         <%= render_slot(@inner_block) %>
       </div>
       <a href={@fauxton} :if={@fauxton}>
