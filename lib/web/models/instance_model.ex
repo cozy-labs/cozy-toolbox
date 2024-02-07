@@ -32,6 +32,7 @@ defmodule Web.Models.Instance do
     cond do
       id == "global" or id == "secrets" ->
         %Instance{id: id, domain: id, prefix: id, avatar: "/images/icon-#{id}.svg", raw_doc: "{}"}
+
       true ->
         {:ok, %Tesla.Env{body: body}} = Couch.get_doc("global/instances", id)
         Instance.from_params(body)

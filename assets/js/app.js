@@ -50,3 +50,7 @@ import "../css/app.css"
 import Prism from "prismjs"
 import "prism-themes/themes/prism-one-light.css"
 Prism.highlightAll()
+
+window.addEventListener("phx:highlight", () => {
+  Prism.highlightAll()
+})

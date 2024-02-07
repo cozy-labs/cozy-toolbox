@@ -18,9 +18,9 @@ defmodule Web.Models.Couch do
     |> Tesla.get("/#{URI.encode_www_form(db)}/_all_docs", query: query)
   end
 
-  def get_doc(db, id) do
+  def get_doc(db, id, query \\ []) do
     client()
-    |> Tesla.get("/#{URI.encode_www_form(db)}/#{URI.encode_www_form(id)}")
+    |> Tesla.get("/#{URI.encode_www_form(db)}/#{URI.encode_www_form(id)}", query: query)
   end
 
   def find(db, request) do

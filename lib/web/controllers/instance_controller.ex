@@ -4,10 +4,6 @@ defmodule Web.InstanceController do
   alias Web.Models.Doctype
   alias Web.Models.Instance
 
-  def index(conn, _params) do
-    live_render(conn, Web.HomeLive)
-  end
-
   def show(conn, %{"cozy" => cozy}) do
     instance = Instance.get(cozy)
     prefix = Instance.get_prefix(instance)

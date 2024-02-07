@@ -47,6 +47,28 @@ pre {
   width: 12rem;
   height: 12rem;
 }
+.toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 1rem;
+  width: 2rem;
+  height: 2rem;
+  background: #fff;
+  border: 1px solid rgba(29, 33, 42, 0.16);
+  border-radius: 2px;
+}
+.toggle:hover {
+  background: rgba(29, 33, 42, 0.08);
+}
+.toggled {
+  background: rgba(29, 33, 42, 0.16);
+}
+
+/* Icons */
+.icon-timer {
+  mask-image: url(/images/icon-timer.svg);
+}
 
 /* Hero */
 .hero-header {
