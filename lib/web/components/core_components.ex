@@ -57,6 +57,24 @@ defmodule Web.CoreComponents do
   end
 
   @doc """
+  Renders a JSON document in pre/code with syntax highlighting.
+
+  ## Examples
+
+      <.json doc={@doc.raw_doc} />
+  """
+
+  attr :doc, :string, required: true
+
+  def json(assigns) do
+    ~H"""
+    <pre class="m-auto"><code class="language-js">
+      <%= Jason.Formatter.pretty_print(@doc) %>
+    </code></pre>
+    """
+  end
+
+  @doc """
   Renders the bar on the left.
 
   ## Examples

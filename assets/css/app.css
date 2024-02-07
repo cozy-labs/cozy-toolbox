@@ -34,6 +34,10 @@ pre {
     transform 0.3s,
     border-radius 0.3s;
 }
+.square-icon img {
+  width: 3.75rem;
+  height: 3.75rem;
+}
 .scale-hover:hover {
   transform: scale(1.0625);
   transition: transform 50ms ease;
@@ -52,6 +56,10 @@ pre {
   border-radius: 50%;
   border: 2px solid #fff;
   background: #fff;
+}
+/* Special case for global and secrets */
+.hero-avatar[src^="/images/icon-"] {
+  border-radius: 0;
 }
 .hero-title {
   font-size: 3rem;
@@ -129,7 +137,7 @@ pre {
   grid-auto-rows: minmax(7rem, auto);
   grid-gap: 0.625rem 0;
   justify-content: center;
-  margin-bottom: 20rem;
+  margin-bottom: 8rem;
 }
 .home-list a {
   display: flex;

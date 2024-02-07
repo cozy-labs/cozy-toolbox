@@ -4,7 +4,7 @@ defmodule Web.Models.Instance do
   alias Web.Models.Couch
   alias Web.Models.Instance
 
-  defstruct [:id, :domain, :prefix, :raw_doc]
+  defstruct [:id, :domain, :prefix, :avatar, :raw_doc]
 
   def list(options \\ []) do
     {:ok, %Tesla.Env{body: body}} = Couch.all_docs("global/instances", options)
@@ -29,8 +29,13 @@ defmodule Web.Models.Instance do
   end
 
   def get(id) do
-    {:ok, %Tesla.Env{body: body}} = Couch.get_doc("global/instances", id)
-    Instance.from_params(body)
+    cond do
+      id == "global" or id == "secrets" ->
+        %Instance{id: id, domain: id, prefix: id, avatar: "/images/icon-#{id}.svg", raw_doc: "{}"}
+      true ->
+        {:ok, %Tesla.Env{body: body}} = Couch.get_doc("global/instances", id)
+        Instance.from_params(body)
+    end
   end
 
   def from_params(params) do
@@ -38,6 +43,7 @@ defmodule Web.Models.Instance do
       id: params["_id"],
       domain: params["domain"],
       prefix: params["prefix"],
+      avatar: "//#{params["domain"]}/public/avatar?fallback=initials",
       raw_doc: Jason.encode!(params)
     }
   end
