@@ -79,14 +79,25 @@ defmodule Web.CoreComponents do
 
   ## Examples
 
-      <.bar />
+      <.bar fauxton={Couch.fauxton_url(@doctype.db)}>
+        &nbsp;
+      </.bar>
   """
+
+  attr :fauxton, :string, default: nil
+  slot :inner_block, required: true
 
   def bar(assigns) do
     ~H"""
     <div class="bar">
       <a href="/">
         <img src="/images/icon.svg" class="m-3" />
+      </a>
+      <div>
+        <%= render_slot(@inner_block) %>
+      </div>
+      <a href={@fauxton} :if={@fauxton}>
+        <img src="/images/couch.svg" class="m-3" />
       </a>
     </div>
     """

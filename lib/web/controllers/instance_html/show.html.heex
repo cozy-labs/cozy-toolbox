@@ -1,9 +1,11 @@
 <main class="d-flex">
-  <.bar />
+  <.bar>
+    &nbsp;
+  </.bar>
 
   <.sidebar instance={@instance} doctypes={@doctypes} />
 
-  <div class="d-flex flex-column align-items-center flex-grow-1 flex-shrink-1">
+  <div class="content">
     <.hero avatar={@instance.avatar} title={@instance.domain} />
 
     <.json doc={@instance.raw_doc} />

@@ -20,7 +20,7 @@ defmodule Web.Models.Couch do
 
   def get_doc(db, id) do
     client()
-    |> Tesla.get("/#{URI.encode_www_form(db)}/#{id}")
+    |> Tesla.get("/#{URI.encode_www_form(db)}/#{URI.encode_www_form(id)}")
   end
 
   def find(db, request) do
