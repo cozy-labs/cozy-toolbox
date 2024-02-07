@@ -42,6 +42,11 @@ pre {
   transform: scale(1.0625);
   transition: transform 50ms ease;
 }
+.illustration {
+  margin-top: 6rem;
+  width: 12rem;
+  height: 12rem;
+}
 
 /* Hero */
 .hero-header {

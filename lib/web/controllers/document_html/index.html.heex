@@ -5,14 +5,27 @@
 
   <.sidebar instance={@instance} doctypes={@doctypes} current={@doctype.name} />
 
-  <div class="content">
-    <table>
-      <tr :for={doc <- @docs}>
-        <td><a href={~p"/cozy/#{@instance.id}/#{@doctype.name}/#{doc.id}"}>
-          <%= doc.id %>
-        </a></td>
-        <td><%= doc.rev %></td>
-      </tr>
-    </table>
+  <div class="content p-3">
+    <%= if Enum.any? @docs do %>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Rev</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr :for={doc <- @docs}>
+            <td><a href={~p"/cozy/#{@instance.id}/#{@doctype.name}/#{doc.id}"}>
+              <%= doc.id %>
+            </a></td>
+            <td><%= doc.rev %></td>
+          </tr>
+        </tbody>
+      </table>
+    <% else %>
+      <img src="/images/folder.svg" class="illustration" alt="" />
+      <h2>No documents</h2>
+    <% end %>
   </div>
 </main>
