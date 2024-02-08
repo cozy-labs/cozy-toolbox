@@ -4,7 +4,7 @@ defmodule Web.Models.Document do
   alias Web.Models.Couch
   alias Web.Models.Document
 
-  defstruct [:id, :rev, :raw_doc]
+  defstruct [:id, :rev, :attrs, :raw_doc]
 
   def list(doctype, options \\ []) do
     {:ok, %Tesla.Env{body: body}} = Couch.all_docs(doctype.db, options)
@@ -37,6 +37,7 @@ defmodule Web.Models.Document do
     %Document{
       id: params["_id"],
       rev: params["_rev"],
+      attrs: Map.drop(params, ["_id", "_rev"]),
       raw_doc: Jason.encode!(params)
     }
   end

@@ -21,6 +21,7 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Rev</th>
+            <th scope="col">Attributes</th>
           </tr>
         </thead>
         <tbody>
@@ -29,6 +30,7 @@
               <%= doc.id %>
             </a></td>
             <td><%= doc.rev %></td>
+            <td class="ellipsis"><%= Jason.encode!(doc.attrs) %></td>
           </tr>
         </tbody>
       </table>

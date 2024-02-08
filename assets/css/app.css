@@ -47,6 +47,8 @@ pre {
   width: 12rem;
   height: 12rem;
 }
+
+/* Toggle buttons */
 .toggle {
   display: flex;
   justify-content: center;
@@ -79,20 +81,6 @@ pre {
 }
 .filters .toggle + .toggle {
   border-top: 0;
-}
-
-/* Icons */
-.icon-file {
-  mask-image: url(/images/icon-file.svg);
-}
-.icon-open {
-  mask-image: url(/images/icon-open.svg);
-}
-.icon-setting {
-  mask-image: url(/images/icon-setting.svg);
-}
-.icon-timer {
-  mask-image: url(/images/icon-timer.svg);
 }
 
 /* Hero */
@@ -251,6 +239,26 @@ pre {
   align-items: center;
   height: 100vh;
   overflow-y: scroll;
+}
+td.ellipsis {
+  max-width: 50vh;
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Icons */
+.icon-file {
+  mask-image: url(/images/icon-file.svg);
+}
+.icon-open {
+  mask-image: url(/images/icon-open.svg);
+}
+.icon-setting {
+  mask-image: url(/images/icon-setting.svg);
+}
+.icon-timer {
+  mask-image: url(/images/icon-timer.svg);
 }
 
 /* Doctypes */
