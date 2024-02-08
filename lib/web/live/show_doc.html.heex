@@ -1,8 +1,10 @@
 <main class="d-flex">
   <.bar fauxton={Couch.fauxton_url(@doctype.db, @doc.id)}>
-    <button phx-click="toggle_revisions" class={"toggle #{if @with_revs, do: "toggled"}"}>
-      <span class="icon icon-timer"></span>
-    </button>
+    <div class="toggle-group">
+      <button phx-click="toggle_revisions" class={"toggle #{if @with_revs, do: "toggled"}"}>
+        <span class="icon icon-timer"></span>
+      </button>
+    </div>
   </.bar>
 
   <.sidebar instance={@instance} doctypes={@doctypes} current={@doctype.name} />

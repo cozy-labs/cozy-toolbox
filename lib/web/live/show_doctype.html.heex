@@ -1,14 +1,24 @@
 <main class="d-flex">
   <.bar fauxton={Couch.fauxton_url(@doctype.db)}>
-    <button phx-click="normal_docs" class={"toggle #{if @kind == "normal_docs", do: "toggled"}"} title="normal_docs">
-      <span class="icon icon-file"></span>
-    </button>
-    <button phx-click="design_docs" class={"toggle #{if @kind == "design_docs", do: "toggled"}"} title="design_docs">
-      <span class="icon icon-setting"></span>
-    </button>
-    <button phx-click="local_docs" class={"toggle #{if @kind == "local_docs", do: "toggled"}"} title="local_docs">
-      <span class="icon icon-open"></span>
-    </button>
+    <div class="toggle-group mb-2">
+      <button phx-click="view_table" class={"toggle #{if @view == "table", do: "toggled"}"} title="table">
+        <span class="icon icon-table"></span>
+      </button>
+      <button phx-click="view_list" class={"toggle #{if @view == "list", do: "toggled"}"} title="list">
+        <span class="icon icon-list"></span>
+      </button>
+    </div>
+    <div class="toggle-group">
+      <button phx-click="normal_docs" class={"toggle #{if @kind == "normal_docs", do: "toggled"}"} title="normal_docs">
+        <span class="icon icon-file"></span>
+      </button>
+      <button phx-click="design_docs" class={"toggle #{if @kind == "design_docs", do: "toggled"}"} title="design_docs">
+        <span class="icon icon-setting"></span>
+      </button>
+      <button phx-click="local_docs" class={"toggle #{if @kind == "local_docs", do: "toggled"}"} title="local_docs">
+        <span class="icon icon-open"></span>
+      </button>
+    </div>
   </.bar>
 
   <.sidebar instance={@instance} doctypes={@doctypes} current={@doctype.name} />
@@ -16,24 +26,34 @@
   <div class="content p-3">
     <h2><%= @kind %></h2>
     <%= if Enum.any? @docs do %>
-      <table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Rev</th>
-            <th scope="col">Attributes</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr :for={doc <- @docs}>
-            <td><a href={~p"/cozy/#{@instance.id}/#{@doctype.name}/#{doc.id}"}>
-              <%= doc.id %>
-            </a></td>
-            <td><%= doc.rev %></td>
-            <td class="ellipsis"><%= Jason.encode!(doc.attrs) %></td>
-          </tr>
-        </tbody>
-      </table>
+      <%= if @view == "table" do %>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Rev</th>
+              <th scope="col">Attributes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr :for={doc <- @docs}>
+              <td><a href={~p"/cozy/#{@instance.id}/#{@doctype.name}/#{doc.id}"}>
+                <%= doc.id %>
+              </a></td>
+              <td><%= doc.rev %></td>
+              <td class="ellipsis"><%= Jason.encode!(doc.attrs) %></td>
+            </tr>
+          </tbody>
+        </table>
+      <% else %>
+        <ul>
+          <li :for={doc <- @docs} class="listitem h-auto">
+            <a href={~p"/cozy/#{@instance.id}/#{@doctype.name}/#{doc.id}"}>
+              <%= Jason.Formatter.pretty_print(doc.raw_doc) %>
+            </a>
+          </li>
+        </ul>
+      <% end %>
     <% else %>
       <img src="/images/folder.svg" class="illustration" alt="" />
       <h2>No documents</h2>

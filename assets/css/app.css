@@ -71,15 +71,15 @@ pre {
 .toggled .icon {
   background: rgba(29, 33, 42, 0.72);
 }
-.filters .toggle:first-child {
+.toggle-group .toggle:first-child {
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
-.filters .toggle:last-child {
+.toggle-group .toggle:last-child {
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
 }
-.filters .toggle + .toggle {
+.toggle-group .toggle + .toggle {
   border-top: 0;
 }
 
@@ -240,8 +240,8 @@ pre {
   height: 100vh;
   overflow-y: scroll;
 }
-td.ellipsis {
-  max-width: 50vh;
+.ellipsis {
+  max-width: 50vw;
   white-space: nowrap;
   overflow-x: hidden;
   text-overflow: ellipsis;
@@ -251,11 +251,17 @@ td.ellipsis {
 .icon-file {
   mask-image: url(/images/icon-file.svg);
 }
+.icon-list {
+  mask-image: url(/images/icon-list.svg);
+}
 .icon-open {
   mask-image: url(/images/icon-open.svg);
 }
 .icon-setting {
   mask-image: url(/images/icon-setting.svg);
+}
+.icon-table {
+  mask-image: url(/images/icon-table.svg);
 }
 .icon-timer {
   mask-image: url(/images/icon-timer.svg);

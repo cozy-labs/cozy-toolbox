@@ -21,6 +21,7 @@ defmodule Web.ShowDoctype do
       |> assign(:doctype, doctype)
       |> assign(:docs, docs)
       |> assign(:kind, "normal_docs")
+      |> assign(:view, "table")
 
     {:ok, socket}
   end
@@ -44,5 +45,15 @@ defmodule Web.ShowDoctype do
     {:ok, doctype} = Map.fetch(socket.assigns, :doctype)
     docs = Document.local_docs(doctype)
     {:noreply, socket |> assign(:docs, docs) |> assign(:kind, "local_docs")}
+  end
+
+  @impl true
+  def handle_event("view_table", _params, socket) do
+    {:noreply, socket |> assign(:view, "table")}
+  end
+
+  @impl true
+  def handle_event("view_list", _params, socket) do
+    {:noreply, socket |> assign(:view, "list")}
   end
 end
