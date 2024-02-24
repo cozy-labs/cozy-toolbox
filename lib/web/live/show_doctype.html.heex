@@ -27,24 +27,26 @@
     <h2><%= @kind %></h2>
     <%= if Enum.any? @docs do %>
       <%= if @view == "table" do %>
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Rev</th>
-              <th scope="col">Attributes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr :for={doc <- @docs}>
-              <td><a href={~p"/cozy/#{@instance.id}/#{@doctype.name}/#{doc.id}"}>
-                <%= doc.id %>
-              </a></td>
-              <td><%= doc.rev %></td>
-              <td class="ellipsis"><%= Jason.encode!(doc.attrs) %></td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-scroll">
+          <table class="table table-hover">
+            <thead class="table-light sticky-top">
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Rev</th>
+                <th scope="col">Attributes</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr :for={doc <- @docs}>
+                <td><a href={~p"/cozy/#{@instance.id}/#{@doctype.name}/#{doc.id}"}>
+                  <%= doc.id %>
+                </a></td>
+                <td><%= doc.rev %></td>
+                <td class="ellipsis"><%= Jason.encode!(doc.attrs) %></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       <% else %>
         <ul>
           <li :for={doc <- @docs} class="listitem h-auto">

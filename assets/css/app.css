@@ -16,6 +16,17 @@
 pre {
   max-width: 80rem;
 }
+.table-scroll {
+  position: relative;
+  max-height: calc(100vh-4rem);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
 .background {
   position: fixed;
   width: 100vw;
@@ -221,6 +232,7 @@ pre {
   min-width: 20rem;
   height: 100vh;
   border-right: 1px solid var(--dividerColor);
+  overflow-y: scroll;
 }
 .subheader {
   margin-bottom: 0.5rem;
