@@ -32,11 +32,30 @@ and `TOOLBOX_DB_URL` env variables:
 $ TOOLBOX_DB_AUTH=user:p4ssw0rd TOOLBOX_DB_URL=http://couch:5984 iex -S mix phx.server
 ```
 
-It's also possible to create your own environment:
+## How to connect to an external server?
+
+It's possible to use a ssh tunnel and create your own environment:
 
 ```
-$ cp config/prod.exs config/my_prod.exs && $EDITOR config/my_prod.exs && MIX_ENV=my_prod iex -S mix phx.server
+$ ssh -L 5981:ha-couch-int.service.consul-dev:5984 bounce
+$ $EDITOR config/my_int.exs
+$ cat config/my_int.exs
+import Config
+
+config :toolbox, Web.Endpoint,
+  db_url: "http://localhost:5981",
+  db_auth: "user:password"
+
+config :toolbox, Web.Endpoint,
+  http: [ip: {127, 0, 0, 1}, port: 5001],
+  secret_key_base: "oNFl6+gGBO5PPUsq2CgFhS/SdsHsYDzi7Y+ZZfwdNb042LjozGmypJGtwWH95rfp"
+
+config :logger, :console, format: "[$level] $message\n"
+$ MIX_ENV=my_int iex -S mix phx.server
+$ $BROWSER http://localhost:5001
 ```
+
+Note: the `db_auth` with `user:password` must be changed to real credentials!
 
 ## Community
 
