@@ -60,7 +60,7 @@ defmodule Toolbox.MixProject do
     [
       pretty: ["cmd cd assets && prettier --write --no-semi js/* css/*"],
       setup: ["deps.get", "assets.setup", "assets.build"],
-      "assets.setup": ["esbuild.install --if-missing"],
+      "assets.setup": ["esbuild.install --if-missing", "cmd cd assets && npm install"],
       "assets.build": ["esbuild default"],
       "assets.deploy": ["esbuild default --minify", "phx.digest"],
       teardown: ["deps.clean --all", "cmd rm -rf _build assets/node_modules"]
