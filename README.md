@@ -11,10 +11,8 @@ hardware where no one profiles you.
 
 ## Cozy-Toolbox
 
-Cozy-Toolbox is a web application that can be used to manage instances and
-develop in local. It is a mix of the cloudery, bender, fauxton and other apps.
-It can be used to browse the data in CouchDB, create local instances, or run
-a fake OIDC server.
+Cozy-Toolbox is a web application that can be used to browse data of Cozy
+instances. It is similar to CouchDB fauxton, but more adapted to Cozy.
 
 ## How to start?
 
@@ -61,7 +59,6 @@ Note: the `db_auth` with `user:password` must be changed to real credentials!
 
 You can reach the Cozy Community by:
 
-* Chatting with us on IRC #cozycloud on [Libera.Chat](https://web.libera.chat/#cozycloud)
 * Posting on our [Forum](https://forum.cozy.io)
 * Posting issues on the [Github repos](https://github.com/cozy/)
 * Mentioning us on [Twitter](https://twitter.com/cozycloud)
