@@ -19,7 +19,6 @@ pre {
 .table-scroll {
   position: relative;
   max-height: calc(100vh-4rem);
-  overflow-x: hidden;
   overflow-y: scroll;
 }
 .sticky-top {
@@ -34,6 +33,8 @@ pre {
   background-image: url("/images/Lampovna.jpg");
   background-position: center;
   background-size: cover;
+  background-color: rgba(29, 33, 42, 0.48);
+  background-blend-mode: color;
 }
 .square-icon {
   width: 5rem;
@@ -67,20 +68,29 @@ pre {
   margin: 0 1rem;
   width: 2rem;
   height: 2rem;
-  background: #fff;
+  background: var(--primaryColorDarkest);
   border: 1px solid rgba(29, 33, 42, 0.16);
 }
+.toggle .icon {
+  background: var(--primaryTextContrastColor);
+}
 .toggle:hover {
-  background: rgba(29, 33, 42, 0.08);
+  background: var(--primaryColor);
+}
+.toggle:hover .icon {
+  background: var(--primaryTextColor);
+}
+.toggled:hover {
+  background: var(--primaryColor);
+}
+.toggled:hover .icon {
+  background: var(--primaryTextContrastColor);
 }
 .toggled {
-  background: rgba(29, 33, 42, 0.16);
-}
-.toggle .icon {
-  background: rgba(29, 33, 42, 0.48);
+  background: var(--primaryColorDark);
 }
 .toggled .icon {
-  background: rgba(29, 33, 42, 0.72);
+  background: var(--primaryTextColor);
 }
 .toggle-group .toggle:first-child {
   border-top-left-radius: 2px;
@@ -110,7 +120,8 @@ pre {
 }
 /* Special case for global and secrets */
 .hero-avatar[src^="/images/icon-"] {
-  border-radius: 0;
+  padding: 0.625rem;
+  border-radius: 0.75rem;
 }
 .hero-title {
   font-size: 3rem;
@@ -131,13 +142,13 @@ pre {
   height: 100%;
   padding: 0.75rem 1rem;
   gap: 1rem;
-  color: #000;
+  color: var(--primaryTextColor);
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 }
 .listitem a:hover,
 .listitem.active a {
   text-decoration: none;
-  background-color: rgba(29, 33, 42, 0.04);
+  background-color: var(--dividerColor);
 }
 
 /* Home */
@@ -165,8 +176,8 @@ pre {
   border: 1px solid transparent;
 }
 .home-search:focus-within {
-  border-color: var(--primaryColor);
-  box-shadow: 0 0 0 0.25rem var(--primaryColorLightest);
+  border-color: #297ef2;
+  box-shadow: 0 0 0 0.25rem #297ef2;
 }
 .home-search img {
   width: 1rem;
@@ -195,11 +206,12 @@ pre {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }
 .home-list h6 {
-  display: -webkit-box;
+  max-width: 100%;
   height: 2.375rem;
-  margin: 0.5rem 0.25rem 0 0.25rem;
+  padding: .25rem .5rem;
   color: #fff;
   font-weight: bold;
   font-size: 0.8rem;
@@ -209,10 +221,7 @@ pre {
   -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: break-spaces;
-  text-shadow:
-    0px 2px 8px rgba(29, 33, 42, 0.16),
-    0px 0px 1px rgba(29, 33, 42, 0.48);
+  white-space: nowrap;
 }
 
 /* Other pages */
@@ -235,14 +244,14 @@ pre {
   overflow-y: scroll;
 }
 .subheader {
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
   padding: 0.5rem 1rem;
   line-height: 1rem;
   font-size: 0.75rem;
   font-weight: bold;
   text-transform: uppercase;
-  color: rgba(29, 33, 42, 0.64);
-  background-color: rgba(29, 33, 42, 0.05);
+  color: var(--primaryTextColor);
+  background-color: var(--paperBackgroundColor);
 }
 .content {
   flex: 1 1 auto;
@@ -252,6 +261,14 @@ pre {
   height: 100vh;
   overflow-y: scroll;
 }
+.json {
+  max-width: 90%;
+}
+.language-js {
+  text-wrap-mode: wrap !important;
+  word-break: break-all !important;
+  break-before: always;
+}
 .ellipsis {
   max-width: 50vw;
   white-space: nowrap;
@@ -260,6 +277,12 @@ pre {
 }
 
 /* Icons */
+.icon {
+  background-color: var(--primaryTextColor);
+  mask-position: center;
+  mask-size: 1rem;
+  mask-repeat: no-repeat;
+}
 .icon-file {
   mask-image: url(/images/icon-file.svg);
 }
@@ -278,14 +301,11 @@ pre {
 .icon-timer {
   mask-image: url(/images/icon-timer.svg);
 }
+.icon-arrow-right {
+  mask-image: url(/images/icon-arrow-mini-right.svg);
+}
 
 /* Doctypes */
-.doctype {
-  background-color: rgba(29, 33, 42, 0.72);
-  mask-position: center;
-  mask-size: 1rem;
-  mask-repeat: no-repeat;
-}
 .doctype {
   mask-image: url("/images/doctypes/fallback.svg");
 }
