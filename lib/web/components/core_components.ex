@@ -68,9 +68,7 @@ defmodule Web.CoreComponents do
 
   def json(assigns) do
     ~H"""
-    <pre class="m-auto"><code class="language-js">
-      <%= Jason.Formatter.pretty_print(@doc) %>
-    </code></pre>
+    <pre class="json m-auto"><code class="language-js"><%= Jason.Formatter.pretty_print(@doc) %></code></pre>
     """
   end
 
@@ -124,7 +122,7 @@ defmodule Web.CoreComponents do
           <a href={~p"/cozy/#{@instance.id}/#{d.name}"}>
             <div class={"#{String.replace(d.name, ".", "-")} icon doctype"}></div>
             <div class="flex-grow-1"><%= d.name %></div>
-            <img src="/images/icon-arrow-mini-right.svg" />
+            <div class="icon icon-arrow-right" />
           </a>
         </li>
       </ul>
