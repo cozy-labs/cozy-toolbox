@@ -47,6 +47,11 @@ defmodule Web.Models.Couch do
     |> Tesla.get("/#{URI.encode_www_form(db)}/#{URI.encode_www_form(id)}", query: query)
   end
 
+  def get_design_doc(db, id, query \\ []) do
+    client()
+    |> Tesla.get("/#{URI.encode_www_form(db)}/_design/#{id}", query: query)
+  end
+
   def find(db, request) do
     client()
     |> Tesla.post("/#{URI.encode_www_form(db)}/_find", request)
@@ -101,7 +106,7 @@ defmodule Web.Models.Couch do
       {Tesla.Middleware.BaseUrl, base_url},
       {Tesla.Middleware.Timeout, timeout: 10_000},
       {Tesla.Middleware.BasicAuth, username: username, password: password},
-      # Tesla.Middleware.Logger,
+      Tesla.Middleware.Logger,
       Tesla.Middleware.JSON
     ])
   end

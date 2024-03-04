@@ -13,6 +13,7 @@ defmodule Web.ShowDoctype do
     doctypes = Doctype.with_prefix(prefix)
     doctype = Enum.find(doctypes, fn d -> d.name == doctypename end)
     docs = Document.list(doctype)
+    fields = Doctype.fields(doctype.name)
 
     socket =
       socket
@@ -20,6 +21,7 @@ defmodule Web.ShowDoctype do
       |> assign(:doctypes, doctypes)
       |> assign(:doctype, doctype)
       |> assign(:docs, docs)
+      |> assign(:fields, fields)
       |> assign(:kind, "normal_docs")
       |> assign(:view, "table")
 
@@ -30,21 +32,30 @@ defmodule Web.ShowDoctype do
   def handle_event("normal_docs", _params, socket) do
     {:ok, doctype} = Map.fetch(socket.assigns, :doctype)
     docs = Document.list(doctype)
-    {:noreply, socket |> assign(:docs, docs) |> assign(:kind, "normal_docs")}
+    fields = Doctype.fields(doctype.name)
+
+    {:noreply,
+     socket |> assign(:docs, docs) |> assign(:fields, fields) |> assign(:kind, "normal_docs")}
   end
 
   @impl true
   def handle_event("design_docs", _params, socket) do
     {:ok, doctype} = Map.fetch(socket.assigns, :doctype)
     docs = Document.design_docs(doctype)
-    {:noreply, socket |> assign(:docs, docs) |> assign(:kind, "design_docs")}
+    fields = Doctype.fields("design_docs")
+
+    {:noreply,
+     socket |> assign(:docs, docs) |> assign(:fields, fields) |> assign(:kind, "design_docs")}
   end
 
   @impl true
   def handle_event("local_docs", _params, socket) do
     {:ok, doctype} = Map.fetch(socket.assigns, :doctype)
     docs = Document.local_docs(doctype)
-    {:noreply, socket |> assign(:docs, docs) |> assign(:kind, "local_docs")}
+    fields = Doctype.fields("local_docs")
+
+    {:noreply,
+     socket |> assign(:docs, docs) |> assign(:fields, fields) |> assign(:kind, "local_docs")}
   end
 
   @impl true

@@ -27,22 +27,24 @@
     <h2><%= @kind %></h2>
     <%= if Enum.any? @docs do %>
       <%= if @view == "table" do %>
-        <div class="table-responsive table-scroll w-100">
-          <table class="table table-light table-hover">
+        <div class="table-responsive w-100">
+          <table class="table table-light table-hover mb-0">
             <thead class="sticky-top">
               <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Rev</th>
-                <th scope="col">Attributes</th>
+                <th scope="col" :for={{field,_} <- @fields}><%= field %></th>
               </tr>
             </thead>
             <tbody>
               <tr :for={doc <- @docs}>
-                <td><a href={~p"/cozy/#{@instance.id}/#{@doctype.name}/#{doc.id}"}>
-                  <%= doc.id %>
-                </a></td>
-                <td><%= doc.rev %></td>
-                <td class="ellipsis"><%= Jason.encode!(doc.attrs) %></td>
+                <td :for={{field,classname} <- @fields} class={classname}>
+                  <%= if classname == "link" do %>
+                    <a href={~p"/cozy/#{@instance.id}/#{@doctype.name}/#{doc.id}"}>
+                      <%= Document.field doc, field %>
+                    </a>
+                  <% else %>
+                    <%= Document.field doc, field %>
+                  <% end %>
+                </td>
               </tr>
             </tbody>
           </table>

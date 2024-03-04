@@ -29,7 +29,15 @@ defmodule Web.Models.Document do
   end
 
   def get(doctype, id, options \\ []) do
-    {:ok, %Tesla.Env{body: body}} = Couch.get_doc(doctype.db, id, options)
+    {:ok, %Tesla.Env{body: body}} =
+      case id do
+        "_design/" <> ddoc ->
+          Couch.get_design_doc(doctype.db, ddoc, options)
+
+        _ ->
+          Couch.get_doc(doctype.db, id, options)
+      end
+
     Document.from_params(body)
   end
 
@@ -41,4 +49,9 @@ defmodule Web.Models.Document do
       raw_doc: Jason.encode!(params)
     }
   end
+
+  def field(doc, :id), do: doc.id
+  def field(doc, :rev), do: doc.rev
+  def field(doc, :raw_doc), do: Jason.encode!(doc.attrs)
+  def field(doc, fieldname), do: doc.attrs[Atom.to_string(fieldname)]
 end

@@ -34,11 +34,6 @@ html {
 pre {
   max-width: 80rem;
 }
-.table-scroll {
-  position: relative;
-  max-height: calc(100vh-4rem);
-  overflow-y: scroll;
-}
 .sticky-top {
   position: sticky;
   top: 0;
