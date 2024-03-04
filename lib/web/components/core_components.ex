@@ -34,7 +34,7 @@ defmodule Web.CoreComponents do
   def hero(assigns) do
     ~H"""
     <div class="hero-header">
-      <img src={@avatar} class="hero-avatar mb-1">
+      <img src={@avatar} class="hero-avatar mb-1" />
       <h1 class="hero-title"><%= @title %></h1>
     </div>
     """
@@ -52,7 +52,7 @@ defmodule Web.CoreComponents do
 
   def square_icon(assigns) do
     ~H"""
-    <div class="square-icon"><img src={@src}></div>
+    <div class="square-icon"><img src={@src} /></div>
     """
   end
 
@@ -94,7 +94,7 @@ defmodule Web.CoreComponents do
       <div class="filters">
         <%= render_slot(@inner_block) %>
       </div>
-      <a href={@fauxton} :if={@fauxton}>
+      <a :if={@fauxton} href={@fauxton}>
         <img src="/images/couch.svg" class="m-3" />
       </a>
     </div>

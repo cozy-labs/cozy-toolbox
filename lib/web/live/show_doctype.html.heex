@@ -1,21 +1,41 @@
 <main class="d-flex">
   <.bar fauxton={Couch.fauxton_url(@doctype.db)}>
     <div class="toggle-group mb-2">
-      <button phx-click="view_table" class={"toggle #{if @view == "table", do: "toggled"}"} title="table">
+      <button
+        phx-click="view_table"
+        class={"toggle #{if @view == "table", do: "toggled"}"}
+        title="table"
+      >
         <span class="icon icon-table"></span>
       </button>
-      <button phx-click="view_list" class={"toggle #{if @view == "list", do: "toggled"}"} title="list">
+      <button
+        phx-click="view_list"
+        class={"toggle #{if @view == "list", do: "toggled"}"}
+        title="list"
+      >
         <span class="icon icon-list"></span>
       </button>
     </div>
     <div class="toggle-group">
-      <button phx-click="normal_docs" class={"toggle #{if @kind == "normal_docs", do: "toggled"}"} title="normal_docs">
+      <button
+        phx-click="normal_docs"
+        class={"toggle #{if @kind == "normal_docs", do: "toggled"}"}
+        title="normal_docs"
+      >
         <span class="icon icon-file"></span>
       </button>
-      <button phx-click="design_docs" class={"toggle #{if @kind == "design_docs", do: "toggled"}"} title="design_docs">
+      <button
+        phx-click="design_docs"
+        class={"toggle #{if @kind == "design_docs", do: "toggled"}"}
+        title="design_docs"
+      >
         <span class="icon icon-setting"></span>
       </button>
-      <button phx-click="local_docs" class={"toggle #{if @kind == "local_docs", do: "toggled"}"} title="local_docs">
+      <button
+        phx-click="local_docs"
+        class={"toggle #{if @kind == "local_docs", do: "toggled"}"}
+        title="local_docs"
+      >
         <span class="icon icon-open"></span>
       </button>
     </div>
@@ -31,18 +51,18 @@
           <table class="table table-light table-hover mb-0">
             <thead class="sticky-top">
               <tr>
-                <th scope="col" :for={{field,_} <- @fields}><%= field %></th>
+                <th :for={{field, _} <- @fields} scope="col"><%= field %></th>
               </tr>
             </thead>
             <tbody>
               <tr :for={doc <- @docs}>
-                <td :for={{field,classname} <- @fields} class={classname}>
+                <td :for={{field, classname} <- @fields} class={classname}>
                   <%= if classname == "link" do %>
                     <a href={~p"/cozy/#{@instance.id}/#{@doctype.name}/#{doc.id}"}>
-                      <%= Document.field doc, field %>
+                      <%= Document.field(doc, field) %>
                     </a>
                   <% else %>
-                    <%= Document.field doc, field %>
+                    <%= Document.field(doc, field) %>
                   <% end %>
                 </td>
               </tr>
