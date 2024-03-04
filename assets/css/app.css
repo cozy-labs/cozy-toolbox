@@ -12,6 +12,24 @@
   src: url("/fonts/Lato-Bold.woff2") format("woff2");
 }
 
+/* Theme */
+html {
+  --iconColor: rgba(29, 33, 42, 0.72);
+  --borderMainColor: rgba(29, 33, 42, 0.08);
+  --actionSelectedColor: rgba(29, 33, 42, 0.08);
+  --primaryMainColor: rgba(41, 126, 242, 1);
+  --primaryMainOpacityColor: rgba(41, 126, 242, 0.08);
+}
+@media (prefers-color-scheme: dark) {
+  html {
+    --iconColor: #fff;
+    --borderMainColor: rgba(255, 255, 255, 0.24);
+    --actionSelectedColor: rgba(255, 255, 255, 0.16);
+    --primaryMainColor: rgba(145, 191, 255, 1);
+    --primaryMainOpacityColor: rgba(145, 191, 255, 0.16);
+  }
+}
+
 /* Generic */
 pre {
   max-width: 80rem;
@@ -68,29 +86,29 @@ pre {
   margin: 0 1rem;
   width: 2rem;
   height: 2rem;
-  background: var(--primaryColorDarkest);
-  border: 1px solid rgba(29, 33, 42, 0.16);
+  background: var(--paperBackgroundColor);
+  border: 1px solid var(--borderMainColor);
 }
 .toggle .icon {
-  background: var(--primaryTextContrastColor);
+  background: var(--secondaryTextColor);
 }
 .toggle:hover {
-  background: var(--primaryColor);
+  background: var(--primaryMainOpacityColor);
 }
 .toggle:hover .icon {
-  background: var(--primaryTextColor);
+  background: var(--primaryMainColor);
 }
 .toggled:hover {
-  background: var(--primaryColor);
+  background: var(--primaryMainOpacityColor);
 }
 .toggled:hover .icon {
-  background: var(--primaryTextContrastColor);
+  background: var(--primaryMainColor);
 }
 .toggled {
-  background: var(--primaryColorDark);
+  background: var(--actionSelectedColor);
 }
 .toggled .icon {
-  background: var(--primaryTextColor);
+  background: var(--iconColor);
 }
 .toggle-group .toggle:first-child {
   border-top-left-radius: 2px;
@@ -177,7 +195,7 @@ pre {
 }
 .home-search:focus-within {
   border-color: #297ef2;
-  box-shadow: 0 0 0 0.25rem #297ef2;
+  box-shadow: 0 0 0 0.2rem #297ef2;
 }
 .home-search img {
   width: 1rem;
@@ -211,7 +229,7 @@ pre {
 .home-list h6 {
   max-width: 100%;
   height: 2.375rem;
-  padding: .25rem .5rem;
+  padding: 0.25rem 0.5rem;
   color: #fff;
   font-weight: bold;
   font-size: 0.8rem;
@@ -278,7 +296,7 @@ pre {
 
 /* Icons */
 .icon {
-  background-color: var(--primaryTextColor);
+  background-color: var(--iconColor);
   mask-position: center;
   mask-size: 1rem;
   mask-repeat: no-repeat;
