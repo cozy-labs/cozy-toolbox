@@ -56,15 +56,27 @@
             </thead>
             <tbody>
               <tr :for={doc <- @docs}>
-                <td :for={{field, classname} <- @fields} class={classname}>
-                  <%= if classname == "link" do %>
-                    <a href={~p"/cozy/#{@instance.id}/#{@doctype.name}/#{doc.id}"}>
-                      <%= Document.field(doc, field) %>
-                    </a>
-                  <% else %>
-                    <%= Document.field(doc, field) %>
+                <%= for {field, classname} <- @fields do %>
+                  <%= case classname do %>
+                    <% "icon" -> %>
+                      <td>
+                        <img
+                          src={"/images/#{Document.field(doc, field)}"}
+                          class="icon bg-transparent"
+                        />
+                      </td>
+                    <% "link" -> %>
+                      <td>
+                        <a href={~p"/cozy/#{@instance.id}/#{@doctype.name}/#{doc.id}"}>
+                          <%= Document.field(doc, field) %>
+                        </a>
+                      </td>
+                    <% _ -> %>
+                      <td class={classname}>
+                        <%= Document.field(doc, field) %>
+                      </td>
                   <% end %>
-                </td>
+                <% end %>
               </tr>
             </tbody>
           </table>

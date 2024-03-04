@@ -26,7 +26,9 @@ defmodule Web.Models.Doctype do
   def fields("io.cozy.apps"), do: [slug: "link", rev: "", version: "", raw_doc: "ellipsis"]
   def fields("io.cozy.contacts"), do: [id: "link", rev: "", displayName: "", raw_doc: "ellipsis"]
   def fields("io.cozy.contacts.groups"), do: [id: "link", rev: "", name: "", raw_doc: "ellipsis"]
-  def fields("io.cozy.files"), do: [id: "link", rev: "", name: "", raw_doc: "ellipsis"]
+
+  def fields("io.cozy.files"),
+    do: [icon_file: "icon", id: "link", rev: "", name: "", raw_doc: "ellipsis"]
 
   def fields("io.cozy.jobs"),
     do: [id: "link", rev: "", worker: "", state: "", raw_doc: "ellipsis"]
