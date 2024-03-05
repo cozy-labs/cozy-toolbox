@@ -10,6 +10,19 @@
   <.sidebar instance={@instance} doctypes={@doctypes} current={@doctype.name} />
 
   <div class="content">
+    <div :if={Enum.any?(@rels)} class="card card-simple m-4 p-3">
+      <h2 class="h3 mb-3">Related:</h2>
+      <p>
+        <a
+          :for={{title, doctype, docid} <- @rels}
+          href={~p"/cozy/#{@instance.id}/#{doctype}/#{docid}"}
+          class="border rounded-pill text-decoration-none p-2 m-2"
+        >
+          <span class={"#{String.replace(doctype, ".", "-")} icon doctype align-middle"}></span>
+          <span class="ms-1 flex-shrink-1 text-body"><%= title %></span>
+        </a>
+      </p>
+    </div>
     <.json doc={@doc.raw_doc} />
   </div>
 </main>

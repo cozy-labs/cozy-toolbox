@@ -5,6 +5,7 @@ defmodule Web.ShowDoc do
   alias Web.Models.Doctype
   alias Web.Models.Document
   alias Web.Models.Instance
+  alias Web.Models.Related
 
   @impl true
   def mount(%{"cozy" => cozy, "doctype" => doctypename, "docid" => docid}, _session, socket) do
@@ -13,6 +14,7 @@ defmodule Web.ShowDoc do
     doctypes = Doctype.with_prefix(prefix)
     doctype = Enum.find(doctypes, fn d -> d.name == doctypename end)
     doc = Document.get(doctype, docid)
+    rels = Related.extract(doctype.name, doc)
 
     socket =
       socket
@@ -20,6 +22,7 @@ defmodule Web.ShowDoc do
       |> assign(:doctypes, doctypes)
       |> assign(:doctype, doctype)
       |> assign(:doc, doc)
+      |> assign(:rels, rels)
       |> assign(:with_revs, false)
 
     {:ok, socket |> push_event("highlight", %{})}
