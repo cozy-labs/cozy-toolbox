@@ -2,8 +2,8 @@ defmodule Web.ShowDoc do
   use Web, :live_view
 
   alias Web.Models.Couch
-  alias Web.Models.Document
   alias Web.Models.Doctype
+  alias Web.Models.Document
   alias Web.Models.Instance
 
   @impl true

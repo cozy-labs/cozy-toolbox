@@ -60,20 +60,17 @@
                   <%= case classname do %>
                     <% "icon" -> %>
                       <td>
-                        <img
-                          src={"/images/#{Document.field(doc, field)}"}
-                          class="icon bg-transparent"
-                        />
+                        <img src={"/images/#{Field.get(doc, field)}"} class="icon bg-transparent" />
                       </td>
                     <% "link" -> %>
                       <td>
                         <a href={~p"/cozy/#{@instance.id}/#{@doctype.name}/#{doc.id}"}>
-                          <%= Document.field(doc, field) %>
+                          <%= Field.get(doc, field) %>
                         </a>
                       </td>
                     <% _ -> %>
                       <td class={classname}>
-                        <%= Document.field(doc, field) %>
+                        <%= Field.get(doc, field) %>
                       </td>
                   <% end %>
                 <% end %>
