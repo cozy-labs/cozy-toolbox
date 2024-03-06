@@ -15,7 +15,7 @@ defmodule Web.Models.Couch do
       |> Keyword.put(:limit, limit)
 
     client()
-    |> Tesla.get("/#{URI.encode_www_form(db)}/_all_docs", query: query)
+    |> Req.get!(url: "/#{URI.encode_www_form(db)}/_all_docs", params: query)
   end
 
   def design_docs(db, options \\ []) do
@@ -27,7 +27,7 @@ defmodule Web.Models.Couch do
       |> Keyword.put(:limit, limit)
 
     client()
-    |> Tesla.get("/#{URI.encode_www_form(db)}/_design_docs", query: query)
+    |> Req.get!(url: "/#{URI.encode_www_form(db)}/_design_docs", params: query)
   end
 
   def local_docs(db, options \\ []) do
@@ -39,28 +39,29 @@ defmodule Web.Models.Couch do
       |> Keyword.put(:limit, limit)
 
     client()
-    |> Tesla.get("/#{URI.encode_www_form(db)}/_local_docs", query: query)
+    |> Req.get!(url: "/#{URI.encode_www_form(db)}/_local_docs", params: query)
   end
 
   def get_doc(db, id, query \\ []) do
     client()
-    |> Tesla.get("/#{URI.encode_www_form(db)}/#{URI.encode_www_form(id)}", query: query)
+    |> Req.get!(url: "/#{URI.encode_www_form(db)}/#{URI.encode_www_form(id)}", params: query)
   end
 
   def get_design_doc(db, id, query \\ []) do
     client()
-    |> Tesla.get("/#{URI.encode_www_form(db)}/_design/#{id}", query: query)
+    |> Req.get!(url: "/#{URI.encode_www_form(db)}/_design/#{id}", params: query)
   end
 
   def find(db, request) do
     client()
-    |> Tesla.post("/#{URI.encode_www_form(db)}/_find", request)
+    |> Req.post!(url: "/#{URI.encode_www_form(db)}/_find", json: request)
   end
 
   def exec_view(db, view_name, query \\ []) do
     client()
-    |> Tesla.get("/#{URI.encode_www_form(db)}/_design/#{view_name}/_view/#{view_name}",
-      query: query
+    |> Req.get!(
+      url: "/#{URI.encode_www_form(db)}/_design/#{view_name}/_view/#{view_name}",
+      params: query
     )
   end
 
@@ -84,7 +85,7 @@ defmodule Web.Models.Couch do
     path = "/_all_dbs"
 
     client()
-    |> Tesla.get(path, query: query)
+    |> Req.get!(url: path, params: query)
   end
 
   def fauxton_url(db) do
@@ -100,14 +101,7 @@ defmodule Web.Models.Couch do
   defp client() do
     base_url = Web.Endpoint.config(:db_url)
     auth = Web.Endpoint.config(:db_auth)
-    [username, password] = String.split(auth, ":", parts: 2)
 
-    Tesla.client([
-      {Tesla.Middleware.BaseUrl, base_url},
-      {Tesla.Middleware.Timeout, timeout: 10_000},
-      {Tesla.Middleware.BasicAuth, username: username, password: password},
-      # Tesla.Middleware.Logger,
-      Tesla.Middleware.JSON
-    ])
+    Req.new(base_url: base_url, auth: {:basic, auth})
   end
 end

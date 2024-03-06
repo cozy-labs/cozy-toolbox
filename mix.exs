@@ -44,8 +44,7 @@ defmodule Toolbox.MixProject do
       {:jason, "~> 1.2"},
       {:dns_cluster, "~> 0.1.1"},
       {:castore, "~> 1.0"},
-      {:mint, "~> 1.5"},
-      {:tesla, "~> 1.8"},
+      {:req, "~> 0.4.0"},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false}
     ]
   end

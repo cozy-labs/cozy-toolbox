@@ -95,7 +95,7 @@ defmodule Web.Models.Related do
     rules ++ track ++ replicate ++ upload
   end
 
-  def extract(doctypename, doc) do
+  def extract(_doctypename, doc) do
     case doc.attrs["relationships"] do
       nil ->
         []

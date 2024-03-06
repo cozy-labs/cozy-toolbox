@@ -7,7 +7,8 @@ defmodule Web.Models.Instance do
   defstruct [:id, :domain, :prefix, :avatar, :raw_doc]
 
   def list(options \\ []) do
-    {:ok, %Tesla.Env{body: body}} = Couch.all_docs("global/instances", options)
+    %Req.Response{status: 200, body: body} =
+      Couch.all_docs("global/instances", options)
 
     body["rows"]
     |> Enum.reject(fn row -> Couch.design_doc?(row) end)
@@ -21,7 +22,7 @@ defmodule Web.Models.Instance do
       |> Keyword.put(:startkey, "\"#{q}\"")
       |> Keyword.put(:endkey, "\"#{q}\uFFFF\"")
 
-    {:ok, %Tesla.Env{body: body}} =
+    %Req.Response{status: 200, body: body} =
       Couch.exec_view("global/instances", "domain-and-aliases", request)
 
     body["rows"]
@@ -34,7 +35,9 @@ defmodule Web.Models.Instance do
         %Instance{id: id, domain: id, prefix: id, avatar: "/images/icon-#{id}.svg", raw_doc: "{}"}
 
       true ->
-        {:ok, %Tesla.Env{body: body}} = Couch.get_doc("global/instances", id)
+        %Req.Response{status: 200, body: body} =
+          Couch.get_doc("global/instances", id)
+
         Instance.from_params(body)
     end
   end
