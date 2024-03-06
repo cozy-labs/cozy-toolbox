@@ -1,4 +1,5 @@
 defmodule Web.ShowDoc do
+  @moduledoc false
   use Web, :live_view
 
   alias Web.Models.Couch

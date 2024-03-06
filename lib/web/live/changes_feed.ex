@@ -1,4 +1,5 @@
 defmodule Web.ChangesFeed do
+  @moduledoc false
   use Web, :live_view
 
   alias Web.Models.Couch

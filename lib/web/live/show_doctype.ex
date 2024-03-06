@@ -1,4 +1,5 @@
 defmodule Web.ShowDoctype do
+  @moduledoc false
   use Web, :live_view
 
   alias Web.Models.Couch
@@ -30,42 +31,36 @@ defmodule Web.ShowDoctype do
   end
 
   @impl true
-  def handle_event("normal_docs", _params, socket) do
+  def handle_params(params, _uri, socket) do
     {:ok, doctype} = Map.fetch(socket.assigns, :doctype)
-    docs = Document.list(doctype)
-    fields = Field.list(doctype.name)
 
-    {:noreply,
-     socket |> assign(:docs, docs) |> assign(:fields, fields) |> assign(:kind, "normal_docs")}
-  end
+    socket =
+      case params["kind"] do
+        "normal_docs" ->
+          docs = Document.list(doctype)
+          fields = Field.list(doctype.name)
+          socket |> assign(docs: docs) |> assign(fields: fields) |> assign(kind: "normal_docs")
 
-  @impl true
-  def handle_event("design_docs", _params, socket) do
-    {:ok, doctype} = Map.fetch(socket.assigns, :doctype)
-    docs = Document.design_docs(doctype)
-    fields = Field.list("design_docs")
+        "design_docs" ->
+          docs = Document.design_docs(doctype)
+          fields = Field.list("design_docs")
+          socket |> assign(docs: docs) |> assign(fields: fields) |> assign(kind: "design_docs")
 
-    {:noreply,
-     socket |> assign(:docs, docs) |> assign(:fields, fields) |> assign(:kind, "design_docs")}
-  end
+        "local_docs" ->
+          docs = Document.local_docs(doctype)
+          fields = Field.list("local_docs")
+          socket |> assign(docs: docs) |> assign(fields: fields) |> assign(kind: "local_docs")
 
-  @impl true
-  def handle_event("local_docs", _params, socket) do
-    {:ok, doctype} = Map.fetch(socket.assigns, :doctype)
-    docs = Document.local_docs(doctype)
-    fields = Field.list("local_docs")
+        _ ->
+          socket
+      end
 
-    {:noreply,
-     socket |> assign(:docs, docs) |> assign(:fields, fields) |> assign(:kind, "local_docs")}
-  end
+    socket =
+      case params["view"] do
+        view when view in ~w(table list) -> assign(socket, view: view)
+        _ -> socket
+      end
 
-  @impl true
-  def handle_event("view_table", _params, socket) do
-    {:noreply, socket |> assign(:view, "table")}
-  end
-
-  @impl true
-  def handle_event("view_list", _params, socket) do
-    {:noreply, socket |> assign(:view, "list")}
+    {:noreply, socket}
   end
 end

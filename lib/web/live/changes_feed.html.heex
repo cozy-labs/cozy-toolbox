@@ -1,6 +1,35 @@
 <main class="d-flex">
   <.bar fauxton={Couch.fauxton_url(@doctype.db, "_changes")}>
-    &nbsp;
+    <div class="toggle-group">
+      <a
+        href={~p"/cozy/#{@instance.id}/#{@doctype.name}?kind=normal_docs"}
+        class="toggle"
+        title="normal_docs"
+      >
+        <span class="icon icon-file"></span>
+      </a>
+      <a
+        href={~p"/cozy/#{@instance.id}/#{@doctype.name}?kind=design_docs"}
+        class="toggle"
+        title="design_docs"
+      >
+        <span class="icon icon-setting"></span>
+      </a>
+      <a
+        href={~p"/cozy/#{@instance.id}/#{@doctype.name}?kind=local_docs"}
+        class="toggle"
+        title="local_docs"
+      >
+        <span class="icon icon-open"></span>
+      </a>
+      <a
+        href={"/cozy/#{@instance.id}/#{@doctype.name}/_changes"}
+        class="toggle toggled"
+        title="changes feed"
+      >
+        <span class="icon icon-inbox"></span>
+      </a>
+    </div>
   </.bar>
 
   <.sidebar instance={@instance} doctypes={@doctypes} current={@doctype.name} />

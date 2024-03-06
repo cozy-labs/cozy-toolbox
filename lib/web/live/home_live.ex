@@ -1,4 +1,5 @@
 defmodule Web.HomeLive do
+  @moduledoc false
   use Web, :live_view
 
   alias Web.Models.Instance

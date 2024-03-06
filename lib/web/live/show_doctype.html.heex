@@ -1,43 +1,43 @@
 <main class="d-flex">
   <.bar fauxton={Couch.fauxton_url(@doctype.db)}>
     <div class="toggle-group mb-2">
-      <button
-        phx-click="view_table"
+      <.link
+        patch={~p"/cozy/#{@instance.id}/#{@doctype.name}?view=table&kind=#{@kind}"}
         class={"toggle #{if @view == "table", do: "toggled"}"}
         title="table"
       >
         <span class="icon icon-table"></span>
-      </button>
-      <button
-        phx-click="view_list"
+      </.link>
+      <.link
+        patch={~p"/cozy/#{@instance.id}/#{@doctype.name}?view=list&kind=#{@kind}"}
         class={"toggle #{if @view == "list", do: "toggled"}"}
         title="list"
       >
         <span class="icon icon-list"></span>
-      </button>
+      </.link>
     </div>
     <div class="toggle-group">
-      <button
-        phx-click="normal_docs"
+      <.link
+        patch={~p"/cozy/#{@instance.id}/#{@doctype.name}?kind=normal_docs&view=#{@view}"}
         class={"toggle #{if @kind == "normal_docs", do: "toggled"}"}
         title="normal_docs"
       >
         <span class="icon icon-file"></span>
-      </button>
-      <button
-        phx-click="design_docs"
+      </.link>
+      <.link
+        patch={~p"/cozy/#{@instance.id}/#{@doctype.name}?kind=design_docs&view=#{@view}"}
         class={"toggle #{if @kind == "design_docs", do: "toggled"}"}
         title="design_docs"
       >
         <span class="icon icon-setting"></span>
-      </button>
-      <button
-        phx-click="local_docs"
+      </.link>
+      <.link
+        patch={~p"/cozy/#{@instance.id}/#{@doctype.name}?kind=local_docs&view=#{@view}"}
         class={"toggle #{if @kind == "local_docs", do: "toggled"}"}
         title="local_docs"
       >
         <span class="icon icon-open"></span>
-      </button>
+      </.link>
       <a
         href={"/cozy/#{@instance.id}/#{@doctype.name}/_changes"}
         class="toggle"
