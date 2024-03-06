@@ -1,0 +1,18 @@
+<main class="d-flex">
+  <.bar fauxton={Couch.fauxton_url(@doctype.db, "_changes")}>
+    &nbsp;
+  </.bar>
+
+  <.sidebar instance={@instance} doctypes={@doctypes} current={@doctype.name} />
+
+  <div class="content p-3">
+    <h2>Changes feed</h2>
+    <ul>
+      <li :for={result <- @results} class="listitem h-auto">
+        <a href={~p"/cozy/#{@instance.id}/#{@doctype.name}/#{result["id"]}"}>
+          <%= Jason.encode!(result) %>
+        </a>
+      </li>
+    </ul>
+  </div>
+</main>

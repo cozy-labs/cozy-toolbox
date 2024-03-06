@@ -18,6 +18,7 @@ defmodule Web.Router do
     live "/", HomeLive
     live "/cozy/:cozy", ShowInstance
     live "/cozy/:cozy/:doctype", ShowDoctype
+    live "/cozy/:cozy/:doctype/_changes", ChangesFeed
     live "/cozy/:cozy/:doctype/:docid", ShowDoc
   end
 end

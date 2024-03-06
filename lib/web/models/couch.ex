@@ -52,6 +52,11 @@ defmodule Web.Models.Couch do
     |> Req.get!(url: "/#{URI.encode_www_form(db)}/_design/#{id}", params: query)
   end
 
+  def changes(db, query \\ []) do
+    client()
+    |> Req.get!(url: "/#{URI.encode_www_form(db)}/_changes", params: query)
+  end
+
   def find(db, request) do
     client()
     |> Req.post!(url: "/#{URI.encode_www_form(db)}/_find", json: request)

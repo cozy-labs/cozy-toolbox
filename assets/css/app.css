@@ -299,6 +299,9 @@ pre {
 .icon-file {
   mask-image: url(/images/icon-file.svg);
 }
+.icon-inbox {
+  mask-image: url(/images/icon-inbox.svg);
+}
 .icon-list {
   mask-image: url(/images/icon-list.svg);
 }

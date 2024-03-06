@@ -6,6 +6,13 @@ defmodule Web.Models.Document do
 
   defstruct [:id, :rev, :attrs, :raw_doc]
 
+  def changes_feed(doctype, options \\ []) do
+    %Req.Response{status: 200, body: body} =
+      Couch.changes(doctype.db, options)
+
+    body["results"]
+  end
+
   def list(doctype, options \\ []) do
     %Req.Response{status: 200, body: body} =
       Couch.all_docs(doctype.db, options)
