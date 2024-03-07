@@ -36,11 +36,9 @@
 
   <div class="content p-3">
     <h2>Changes feed</h2>
-    <ul>
-      <li :for={result <- @results} class="listitem h-auto">
-        <a href={~p"/cozy/#{@instance.id}/#{@doctype.name}/#{result["id"]}"}>
-          <%= Jason.encode!(result) %>
-        </a>
+    <ul id="changes" phx-update="stream">
+      <li :for={{dom_id, result} <- @streams.results} class="listitem h-auto" id={dom_id}>
+        <.json doc={result.raw_doc} />
       </li>
     </ul>
   </div>

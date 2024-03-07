@@ -52,9 +52,24 @@ defmodule Web.Models.Couch do
     |> Req.get!(url: "/#{URI.encode_www_form(db)}/_design/#{id}", params: query)
   end
 
-  def changes(db, query \\ []) do
+  def changes(db, options \\ []) do
+    feed = Keyword.get(options, :feed, "normal")
+    limit = Keyword.get(options, :limit, 1000)
+    finch_request = Keyword.get(options, :finch_request, nil)
+
+    query =
+      []
+      |> Keyword.put(:feed, feed)
+      |> Keyword.put(:include_docs, true)
+      |> Keyword.put(:limit, limit)
+
     client()
-    |> Req.get!(url: "/#{URI.encode_www_form(db)}/_changes", params: query)
+    |> Req.get!(
+      url: "/#{URI.encode_www_form(db)}/_changes",
+      params: query,
+      finch_request: finch_request,
+      receive_timeout: 120_000
+    )
   end
 
   def find(db, request) do
