@@ -21,7 +21,7 @@ To start your Phoenix server:
   * Run `mix setup` to install and setup dependencies
   * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
 
-Now you can visit [`localhost:5000`](http://localhost:5000) from your browser.
+Now you can visit [`localhost:5900`](http://localhost:5900) from your browser.
 
 If you need to configure the CouchDB to use, you can use the `TOOLBOX_DB_AUTH`
 and `TOOLBOX_DB_URL` env variables:
