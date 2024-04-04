@@ -11,7 +11,7 @@ config :toolbox, Web.Endpoint,
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :toolbox, Web.Endpoint,
-  http: [ip: {127, 0, 0, 1}, port: 5000],
+  http: [ip: {127, 0, 0, 1}, port: 5900],
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
